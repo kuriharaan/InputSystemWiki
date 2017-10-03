@@ -107,7 +107,7 @@ An action has four phases:
 4. Cancelled
 
 >Actions try to keep their per-frame processing minimal but because state changes in entire blocks, actions
->can only know that a piece of state has changed that *contains* the state the action is interested in. To
+>can only know that a piece of state has changed that *contains* the value the action is interested in. To
 >find out whether the actual value inside the state has changed, an action still has to do work.
 >
 >Actions employ state change notifications to not have to poll every single state they are interested in
@@ -115,7 +115,7 @@ An action has four phases:
 
 ### Sources
 
-Every action needs to be told which state to monitor for change.
+Every action needs to be told which state to monitor for change. This is done by assigning one or more control path expressions to an action. Each such expression can match zero or more controls in the system. As new controls are added to the system or controls are removed, an action will automatically update its set of targeted controls.
 
 ## Modifiers
 
