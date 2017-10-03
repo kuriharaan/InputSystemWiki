@@ -1,5 +1,8 @@
 This is an overview of the architecture of the system.
 
+>Goal is to be able to comfortably describe the entire architecture on a single Wiki page and cover around
+>6k sloc that in turn covers everything we need.
+
 The system breaks down into a "passive" and an "active" part.
 
 # Passive
@@ -91,7 +94,7 @@ There is no class representation of events. The user can listen to the event str
 
 # Active
 
-The "active" part of the system requires explicit set up by the user and incurs processing overhead proportional to the amount of enabled functionality. Unlike the "passive" part, it is concerned with state *change* rather than with state itself.
+The "active" part of the system requires explicit setup by the user and incurs processing overhead proportional to the amount of enabled functionality. Unlike the "passive" part, it is concerned with state *change* rather than with state itself.
 
 Actions are an optional feature. A user can stick entirely to the passive part of the system and work with devices and controls only.
 
