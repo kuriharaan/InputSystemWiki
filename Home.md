@@ -139,6 +139,10 @@ Action sets can be constructed in two ways:
 
 Action sets can also be converted back to JSON and stored for later use.
 
+>NOTE: The system makes it *possible* for action sets to be stored as JSON assets. However, it itself makes no
+>effort for setting up a system to do so. It does supply an ActionSetObject wrapper and associated
+>CustomInspector, though.
+
 ## Binding Sets
 
 Binding sets can be constructed in two ways:
@@ -147,3 +151,7 @@ Binding sets can be constructed in two ways:
 2. Manually in code.
 
 Binding sets can also be converted back to JSON and stored for later use.
+
+>NOTE: The system makes it *possible* for binding sets to be stored as JSON assets. However, it itself makes no
+>effort for setting up a system to handle that. It does supply a BindingSetObject wrapper and associated
+>CustomInspector, though.
