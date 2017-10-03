@@ -4,7 +4,7 @@ The system breaks down into a "passive" and an "active" part.
 
 # Passive
 
-The "passive" part is concerning with capturing state using minimal per-frame processing. It is largely set up automatically but can be configured/adjusted by the user. It has a zero-setup API that will be familiar to users of Unity's existing input system.
+The "passive" part is concerned with capturing state using minimal per-frame processing. It is largely set up automatically but can be configured/adjusted by the user. It has a zero-setup API that will be familiar to users of Unity's existing input system.
 
 ## Controls
 
@@ -12,13 +12,29 @@ A control captures a (possibly structured) value.
 
 There is a range of pre-defined control types: [ButtonControl](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/ButtonControl.cs), [AxisControl](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/AxisControl.cs), [StickControl](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/StickControl.cs), [PoseControl](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/PoseControl.cs), etc.
 
-Controls are named and form hierarchies. Controls in a hierarchy can be looked up by path (e.g. "/gamepad/leftStick" but can also include patterns like in "/*/leftStick").
-
 ### Hierarchies and Paths
+
+Controls are named and form hierarchies. Controls in a hierarchy can be looked up by path (e.g. "/gamepad/leftStick" but can also include patterns like in "/*/leftStick").
 
 ### Usages
 
+Every control may have one or more usages associated with it. Usages give meaning to a control. For example, there's a "Back" usage which is associated with the "Escape" key on a keyboard and with the "B" button on a gamepad. The following code checks wether a button with the "Back" usage was pressed to close a UI. This code will work with both gamepads and keyboards (and any other template making use of the "Back" usage).
+
+    if (InputSystem.GetControls<Button>("**/Back").Any(x => x.wasPressedThisFrame))
+        CloseMyUI();
+
+>Of course, this is *NOT* how you would write it in a game. Normally you'd use actions which do the lookup
+>once and will update automatically if new matching controls appear in the system (or existing ones disappear).
+
 ### Processors
+
+A control can have one or more associated processors that are arranged in a stack. When retrieving a value of a control from its state, the value is subsequently passed through the stack and every processor can alter the value along the way.
+
+A processor can have parameters which can be set from templates. Any public field on a processor is considered a possible parameter.
+
+There are various predefined processors such as [DeadzoneProcessor](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/Processors/DeadzoneProcessor.cs), [InvertProcessor](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/Processors/InvertProcessor.cs), [ClampProcessor](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/Processors/ClampProcessor.cs), [NormalizeProcessor](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/Processors/NormalizeProcessor.cs), and [CurveProcessor](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/Processors/CurveProcessor.cs).
+
+Note that as the system permits structured values, it's possible to perform operations like deadzoning properly on Vector2s.
 
 ## Templates
 
