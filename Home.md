@@ -26,9 +26,19 @@ Controls are named and form hierarchies. Controls in a hierarchy can be looked u
 
 ## State
 
+Values of controls are stored in state buffers. There are multiple buffers serving different purposes but all devices in the system share the same buffers and all buffers share the same single allocation.
+
+Every control hierarchy gets its own layout which is determined by [InputControlSetup](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputControlSetup.cs). The layouts can be a combination of automatic layouting as well as fixed offset layouts supplied by templates.
+
+State is bit-addressable. [ButtonControl](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/ButtonControl.cs) uses this to store its state as a single bit and allows several buttons to be packed into a single int (see [GamepadState](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Devices/Gamepad.cs) for an example).
+
 ## Events
 
+Events change the state of the system.
+
 # Active
+
+The "active" part of the system requires explicit set up by the user and incurs processing overhead proportional to the amount of enabled functionality. Unlike the "passive" part, it is concerned with state *change* rather than with state itself.
 
 ## Actions
 
