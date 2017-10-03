@@ -1,7 +1,7 @@
 This is an overview of the architecture of the system.
 
 >Goal is to be able to comfortably describe the entire architecture on a single Wiki page and cover around
->6k sloc that in turn covers everything we need.
+>6k sloc that in turn cover everything we need from the system.
 
 The system breaks down into a "passive" and an "active" part.
 
