@@ -48,8 +48,14 @@ Events change the state of the system.
 
 There's two main kinds of events:
 
-1. Events that push new state into devices ([StateEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/StateEvent.cs) is a full-state update, [DeltaEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DeltaEvent.cs) is a partial-state update)
+1. Events that push new state into devices ([StateEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/StateEvent.cs) is a full-state update, [DeltaEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DeltaEvent.cs) is a partial-state update).
 2. Events that relate other relevant information about devices ([disconnects](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DisonnectEvent.cs) and [reconnects](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/ConnectEvent.cs), [text input](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/TextInput.cs), etc).
+
+Events are accumulated on a queue which sits in engine itself (NativeInputSystem). The event representation is shared with the code code (Modules/Input) and is flexible. An event basically is a FourCC type code, a size in bytes, a timestamps, and a flexible payload. We put some upper bound on the size of events but they can be large.
+
+State events (both [StateEvents](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/StateEvent.cs) and [DeltaEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DeltaEvent.cs)) employ identical state layouts with the control hierarchy of the device they are targeting. Basic FourCC type checks are in place to catch blatant errors.
+
+The data in state events is simply memcopied over the current state of the device. A device can choose to send a state snapshot every single frame (e.g. an XInput gamepad backend would query connected gamepads at regular intervals and push their full-state snapshots as single events into the system) or can choose to send events only when actual value changes are detected. 
 
 # Active
 
