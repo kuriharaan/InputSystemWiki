@@ -93,6 +93,8 @@ There is no class representation of events. The user can listen to the event str
 
 The "active" part of the system requires explicit set up by the user and incurs processing overhead proportional to the amount of enabled functionality. Unlike the "passive" part, it is concerned with state *change* rather than with state itself.
 
+Actions are an optional feature. A user can stick entirely to the passive part of the system and work with devices and controls only.
+
 ## Actions
 
 An action monitors for state change and invokes user code in response to them.
@@ -103,6 +105,17 @@ An action has four phases:
 2. Started
 3. Performed
 4. Cancelled
+
+>Actions try to keep their per-frame processing minimal but because state changes in entire blocks, actions
+>can only know that a piece of state has changed that *contains* the state the action is interested in. To
+>find out whether the actual value inside the state has changed, an action still has to do work.
+>
+>Actions employ state change notifications to not have to poll every single state they are interested in
+>for every single frame.
+
+### Sources
+
+Every action needs to be told which state to monitor for change.
 
 ## Modifiers
 
@@ -116,4 +129,18 @@ A binding correlates an action with one or more sources. While sources can be sp
 
 An action set groups a set of actions and allows them to be enabled and disabled in bulk. Action sets also allow applying binding sets to the entire group of actions as well as getting binding sets from the currently used sources of the actions in a set.
 
+Action sets can be constructed in two ways:
+
+1. By loading them from JSON.
+2. Manually in code.
+
+Action sets can also be converted back to JSON and stored for later use.
+
 ## Binding Sets
+
+Binding sets can be constructed in two ways:
+
+1. By loading them from JSON.
+2. Manually in code.
+
+Binding sets can also be converted back to JSON and stored for later use.
