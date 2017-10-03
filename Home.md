@@ -46,6 +46,11 @@ State is bit-addressable. [ButtonControl](https://github.com/Unity-Technologies/
 
 Events change the state of the system.
 
+There's two main kinds of events:
+
+1. Events that push new state into devices ([StateEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/StateEvent.cs) is a full-state update, [DeltaEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DeltaEvent.cs) is a partial-state update)
+2. Events that relate other relevant information about devices ([disconnects](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DisonnectEvent.cs) and [reconnects](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/ConnectEvent.cs), [text input](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/TextInput.cs), etc).
+
 # Active
 
 The "active" part of the system requires explicit set up by the user and incurs processing overhead proportional to the amount of enabled functionality. Unlike the "passive" part, it is concerned with state *change* rather than with state itself.
