@@ -81,6 +81,8 @@ State events (both [StateEvents](https://github.com/Unity-Technologies/InputSyst
 
 The data in state events is simply memcopied over the current state of the device. A device can choose to send a state snapshot every single frame (e.g. an XInput gamepad backend would query connected gamepads at regular intervals and push their full-state snapshots as single events into the system) or can choose to send events only when actual value changes are detected.
 
+For high-frequency value changes where it may be important to send every single value change with its own time stamp instead of aggregating events at the source, it may be advisable to use [DeltaEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DeltaEvent.cs) instead of sending a full device state snapshot every time.
+
 There is no class representation of events. The user can listen to the event stream but will get an [InputEventPtr](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/InputEventPtr.cs) that require unsafe code in order to work with the data. For the most part, the event stream is *not* meant for consumption at a user level. It is expected that users dealing with events directly will mostly be those authoring new device backends.
 
 # Active
