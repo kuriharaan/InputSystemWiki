@@ -14,7 +14,7 @@ There is a range of pre-defined control types: [ButtonControl](https://github.co
 
 Controls are named and form hierarchies. Controls in a hierarchy can be looked up by path (e.g. "/gamepad/leftStick" but can also include patterns like in "/*/leftStick").
 
-### Paths
+### Hierarchies and Paths
 
 ### Usages
 
@@ -33,6 +33,8 @@ Templates can be constructed in three ways:
 Internally, templates are represented using [InputTemplate](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputTemplate.cs). However, these objects are created on-demand only inside [InputControlSetup](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputControlSetup.cs) and not kept in memory past device creation.
 
 ## Devices
+
+Devices are controls that sit at the root of a control hierarchy. They have to be instances of [InputDevice](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Devices/InputDevice.cs).
 
 ## State
 
