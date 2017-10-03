@@ -62,6 +62,10 @@ Every control hierarchy gets its own layout which is determined by [InputControl
 
 State is bit-addressable. [ButtonControl](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/ButtonControl.cs) uses this to store its state as a single bit and allows several buttons to be packed into a single int (see [GamepadState](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Devices/Gamepad.cs) for an example).
 
+>There are no "smarts" built into the state system. If you need specific behavior in your state over time, you
+>have to build that behavior into the state event generation part. An example are pointer deltas which require
+>both accumulation during frames and resetting between frames. The system cannot do that automatically for you.
+
 ## Events
 
 Events change the state of the system.
