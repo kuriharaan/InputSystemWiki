@@ -62,6 +62,10 @@ Every control hierarchy gets its own layout which is determined by [InputControl
 
 State is bit-addressable. [ButtonControl](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/ButtonControl.cs) uses this to store its state as a single bit and allows several buttons to be packed into a single int (see [GamepadState](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Devices/Gamepad.cs) for an example).
 
+By far the easiest way to define state is to use state structs. These are simply C# structs with fields that are annotated with [InputControlAttribute](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputControlAttribute.cs). A state struct can be associated with a device class using [InputStateAttribute](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/State/InputStateAttribute.cs). The struct can then be used to send state updates for the device. The template system will automatically pick up the struct and incorporate its information into templates.
+
+An example of such a struct is [GamepadState](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Devices/Gamepad.cs). State structs can also be embedded within each other which, in the case of [GamepadState](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Devices/Gamepad.cs) is done for [GamepadOutputState](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Devices/Gamepad.cs).
+
 >There are no "smarts" built into the state system. If you need specific behavior in your state over time, you
 >have to build that behavior into the state event generation part. An example are pointer deltas which require
 >both accumulation during frames and resetting between frames. The system cannot do that automatically for you.
