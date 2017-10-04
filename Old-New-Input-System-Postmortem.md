@@ -39,7 +39,7 @@ This leads me to the next point.
 
 Personally, based on the prototype I came away with several assumptions that turned out to be harmful.
 
-One such assumption was that in the HLAPI we need all functionality to be exposed in neat, easy, "Unity style" fashion. This, amongst a verity of things, led to events being classes and having an object-oriented, easy accessibility to them. Out of this flowed a lot of complexity (like the routing mechanics) and more flawed assumptions.
+One such assumption was that in the HLAPI we need all functionality to be exposed in neat, easy, "Unity style" fashion. This, amongst a verity of things, led to events being classes and having an object-oriented, easy accessibility to them. Out of this flowed a lot of complexity (like the routing mechanics) and more flawed assumptions. Today I wonder if action maps would have ended up quite different if the foundation presented them through devices and events had been a more streamlined and efficient one.
 
 ## Putting the pressure on prematurely
 
