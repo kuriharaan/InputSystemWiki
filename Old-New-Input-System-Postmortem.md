@@ -30,5 +30,16 @@ The C# only prototype we did early on proved extremely valuable. It formed a fee
 
 However, there wasn't the step *after* the prototype where you take a step bake, take all that you have learnt, ask some hard questions, and progress to writing a production quality system.
 
+This leads me to the next point.
+
+## Incorrect and/or harmful assumptions
+
+Personally, based on the prototype I came away with several assumptions that turned out to be harmful.
+
+One such assumption was that in the HLAPI we need all functionality exposed in neat, easy, "Unity style" fashion. This, amongst a verity of things, led to events being classes and having an object-oriented, easy accessibility to them. Out of this flowed a lot of complexity (like the routing mechanics) and more flawed assumptions.
+
 ## Compartmentalized ownership
 
+The system got split in two with a low-level native API and a high-level managed API. The division makes good sense.
+
+However, over time it also led to compartmentalized ownership in the team. While this may seem natural and not like a problem, for me personally it meant that I more and more confined myself to my own little sandbox (which was mostly the native part). I think a system that is not eventually owned top to bottom by at least "someone" is always going to show the fact in some ways.
