@@ -28,7 +28,7 @@ I think that this can be helped greatly by not leaving it to just the devs to fi
 
 The C# only prototype we did early on proved extremely valuable. It formed a feedback bridge to other teams and allowed us to try out and reshape ideas.
 
-However, there wasn't the step *after* the prototype where you take a step back, take all that you have learnt, ask some hard questions, and progress to writing a production quality system.
+However, there wasn't the step *after* the prototype where you take a step back, take all that you have learned, ask some hard questions, and progress to writing a production quality system.
 
 >For me, this is partly what InputSystemX is about. There's a ton of learnings that flowed out of the old new
 >input system in there (along with heavy input from Tom Baird and Matt Dalby).
