@@ -58,4 +58,6 @@ At the same time we tried to solve the problem, the new package manager was just
 
 The system got split in two with a low-level native API and a high-level managed API. The division makes good sense.
 
-However, over time it also led to compartmentalized ownership in the team. While this may seem natural and not like a problem, for me personally it meant that I more and more confined myself to my own little sandbox (which was mostly the native part). I think a system that is not eventually owned top to bottom by at least "someone" is always going to show the fact in some ways.
+However, over time it also led to compartmentalized ownership in the team. While this may seem natural and not like a problem, for me personally it meant that I more and more confined myself to my own little sandbox (which was mostly the native part). In retrospect, I think I spent a great deal of time solving problems that I now consider details to be solved after the larger system has all its parts. For example, I sunk considerable effort into the HID-related portions of the native backends whereas now I see the importance of that portions vastly diminished when looking at the bigger picture.
+
+I think a system that is not eventually owned top to bottom by at least "someone" is always going to show the fact in some ways.
