@@ -42,7 +42,7 @@ One such assumption was that in the HLAPI we need all functionality to be expose
 
 When the XR team expressed rapidly evolving needs around input, I made the call that it wouldn't be good to build those on the old input system and that we should use the opportunity to push work on the new input system along and employ the XR team as an in-house user of sorts.
 
-In retrospect, I think this probably was a mistake. One problem is that the XR team in particular has very specific deadlines tied to big platform contracts. Committing to them means committing to their deadlines.
+In retrospect, I think this probably was a mistake. One problem is that the XR team in particular has very specific deadlines tied to big platform contracts. Committing to them means committing to their deadlines and to leave them hanging means putting the XR team into a serious conundrum.
 
 While a lot of good came out of this and the close collaboration with Scott Flynn's team in Bellevue, I think it led to some questions not being asked for the sake of "hey, we need X done by Y".
 
