@@ -49,7 +49,7 @@ In retrospect, I think this probably was a mistake. One problem is that the XR t
 
 While a lot of good came out of this and the close collaboration with Scott Flynn's team in Bellevue, I think it led to some questions not being asked for the sake of "hey, we need X done by Y".
 
-It also become a problem after being combined with the following...
+It also became a problem after being combined with the following...
 
 ## Spearheading a parallel effort
 
