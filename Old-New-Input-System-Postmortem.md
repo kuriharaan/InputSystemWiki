@@ -12,15 +12,15 @@ There was an entire year where nothing happened.
 
 ## Getting sidetracked
 
-At one point the concern was raised that "Unity should not get yet another event system". An effort for "unified event handling" was brought to live and I stupidly shouldered the burden of making that happen. Even after multiple meeting it was not clear what the objective actually was and what the work to be done was.
+At one point the concern was raised that "Unity should not get yet another event system". An effort for "unified event handling" was brought to life and I stupidly shouldered the burden of making that happen. Even after multiple meetings it was not clear what the exact objective actually was and what the work to be done was.
 
-This stalled work on critical parts of the input system and ended up taking all momentum out of the project as I was stumbling around and Rune was uncertainty cast over major portions of the system. I didn't realize how poisonous this was to the project until I found myself jumping on the first opportunity to work on something else entirely. Only with some distance did I realize that I had never made sure I was taking on a well-defined task.
+This stalled work on critical parts of the input system and ended up taking all momentum out of the project as I was stumbling around and Rune was left with major uncertainty cast over significant portions of the system. I didn't realize how poisonous this was to the project until I found myself jumping on the first opportunity to work on something else entirely. Only with some distance did I realize that I had never made sure I was taking on a well-defined task.
 
 ## Lack of inter-team coordination
 
 Communicating with all relevant stakeholders was left solely to the input team. This included talking to a diverse set of teams (labs, XR, platforms, etc) across separate office locations.
 
-While I think we made a decent effort, it clearly fell short and as the person responsible for low-level work, I see my communication with the various platform stake holders clearly lacking.
+While I think we made a decent effort, it clearly fell short and as the person responsible for low-level work, I specifically see my communication with the various platform stake holders clearly lacking.
 
 I think that this can be helped greatly by not leaving it to just the devs to figure this out all by themselves. Code monkeys don't necessarily make the very best communicators and people coordinators :)
 
@@ -28,7 +28,7 @@ I think that this can be helped greatly by not leaving it to just the devs to fi
 
 The C# only prototype we did early on proved extremely valuable. It formed a feedback bridge to other teams and allowed us to try out and reshape ideas.
 
-However, there wasn't the step *after* the prototype where you take a step bake, take all that you have learnt, ask some hard questions, and progress to writing a production quality system.
+However, there wasn't the step *after* the prototype where you take a step back, take all that you have learnt, ask some hard questions, and progress to writing a production quality system.
 
 This leads me to the next point.
 
@@ -36,7 +36,7 @@ This leads me to the next point.
 
 Personally, based on the prototype I came away with several assumptions that turned out to be harmful.
 
-One such assumption was that in the HLAPI we need all functionality exposed in neat, easy, "Unity style" fashion. This, amongst a verity of things, led to events being classes and having an object-oriented, easy accessibility to them. Out of this flowed a lot of complexity (like the routing mechanics) and more flawed assumptions.
+One such assumption was that in the HLAPI we need all functionality to be exposed in neat, easy, "Unity style" fashion. This, amongst a verity of things, led to events being classes and having an object-oriented, easy accessibility to them. Out of this flowed a lot of complexity (like the routing mechanics) and more flawed assumptions.
 
 ## Compartmentalized ownership
 
