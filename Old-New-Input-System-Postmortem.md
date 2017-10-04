@@ -22,7 +22,7 @@ Communicating with all relevant stakeholders was left solely to the input team. 
 
 While I think we made a decent effort, it clearly fell short and as the person responsible for low-level work, I specifically see my communication with the various platform stake holders lacking.
 
-I think that this can be helped greatly by not leaving it to just the devs to figure this out all by themselves. Code monkeys don't necessarily make the very best communicators and people coordinators :)
+I think that this can be helped greatly by not leaving it to just the devs to figure this out by themselves. Code monkeys don't necessarily make the very best communicators and people coordinators :)
 
 ## A prototype that was not thrown away
 
