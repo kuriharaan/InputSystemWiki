@@ -6,7 +6,7 @@ This is my own personal evaluation of what went wrong with the "old new input sy
 
 ## Lack of commitment in early phase
 
-At multiple points I wandered off from the project. This happened right at the beginning where only sporadic effort was made by me as well as when the project was already more thoroughly underway (I went and worked on the testing/faking stuff for a long time). Often I led myself get pulled into various other things (example: Personal Edition which I estimated "will only require a few simple changes I can do in a week" and ended up taking weeks of meetings, refactorings, and landing).
+At multiple points I wandered off from the project. This happened right at the beginning where only sporadic effort was made by me as well as when the project was already more thoroughly underway (I went and worked on the testing/faking stuff for a long time). Often I let myself get pulled into various other things (example: Personal Edition which I estimated "will only require a few simple changes I can do in a week" and ended up taking weeks of meetings, refactorings, and landing).
 
 There was an entire year where nothing happened.
 
