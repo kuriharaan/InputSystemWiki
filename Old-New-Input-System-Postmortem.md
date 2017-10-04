@@ -20,7 +20,7 @@ This stalled work on critical parts of the input system and ended up taking all 
 
 Communicating with all relevant stakeholders was left solely to the input team. This included talking to a diverse set of teams (labs, XR, platforms, etc) across separate office locations.
 
-While I think we made a decent effort, it clearly fell short and as the person responsible for low-level work, I specifically see my communication with the various platform stake holders clearly lacking.
+While I think we made a decent effort, it clearly fell short and as the person responsible for low-level work, I specifically see my communication with the various platform stake holders lacking.
 
 I think that this can be helped greatly by not leaving it to just the devs to figure this out all by themselves. Code monkeys don't necessarily make the very best communicators and people coordinators :)
 
@@ -37,6 +37,22 @@ This leads me to the next point.
 Personally, based on the prototype I came away with several assumptions that turned out to be harmful.
 
 One such assumption was that in the HLAPI we need all functionality to be exposed in neat, easy, "Unity style" fashion. This, amongst a verity of things, led to events being classes and having an object-oriented, easy accessibility to them. Out of this flowed a lot of complexity (like the routing mechanics) and more flawed assumptions.
+
+## Putting the pressure on prematurely
+
+When the XR team expressed rapidly evolving needs around input, I made the call that it wouldn't be good to build those on the old input system and that we should use the opportunity to push work on the new input system along and employ the XR team as an in-house user of sorts.
+
+In retrospect, I think this probably was a mistake. One problem is that the XR team in particular has very specific deadlines tied to big platform contracts. Committing to them means committing to their deadlines.
+
+While a lot of good came out of this and the close collaboration with Scott Flynn's team in Bellevue, I think it led to some questions not being asked for the sake of "hey, we need X done by Y".
+
+It also become a problem after being combined with the following...
+
+## Spearheading a parallel effort
+
+Early on it was decided that the C# part of the system would be open source and hosted on Github. Unfortunately, commitment to the XR team and their contracts meant that we had to ship prebuilt binaries with a Unity installation.
+
+At the same time we tried to solve the problem, the new package manager was just about to become a viable delivery platform so we decided to go with that. However, at the time no other package put similar requirements on packman so we ended up prematurely committing to it and spending time on things not directly focused on the input system.
 
 ## Compartmentalized ownership
 
