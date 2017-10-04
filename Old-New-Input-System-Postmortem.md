@@ -14,19 +14,19 @@ There was an entire year where nothing happened.
 
 At one point the concern was raised that "Unity should not get yet another event system". An effort for "unified event handling" was brought to life and I stupidly shouldered the burden of making that happen. Even after multiple meetings it was not clear what the exact objective actually was and what the work to be done was.
 
-This stalled work on critical parts of the input system and ended up taking all momentum out of the project as I was stumbling around and Rune was left with major uncertainty cast over significant portions of the system. I didn't realize how poisonous this was to the project until I found myself jumping on the first opportunity to work on something else entirely. Only with some distance did I realize that I had never made sure I was taking on a well-defined task.
+This stalled work on critical parts of the input system and ended up taking all momentum out of the project as I was stumbling around and Rune was left with major uncertainty cast over significant portions of the system. I didn't realize how poisonous this was to the project until I found myself jumping on the first opportunity to work on something else. Only with some distance did I realize that I had never made sure I was taking on a well-defined task.
 
 ## Lack of inter-team coordination
 
-Communicating with all relevant stakeholders was left solely to the input team. This included talking to a diverse set of teams (labs, XR, platforms, etc) across separate office locations.
+Communicating with relevant stakeholders was left to the input team. This included talking to a diverse set of teams (labs, XR, platforms, etc) across separate office locations.
 
-While I think we made a decent effort, it clearly fell short and as the person responsible for low-level work, I specifically see my communication with the various platform stake holders lacking.
+While I think we made a decent effort, it clearly fell short and as the person responsible for low-level work, I specifically see my communication with the various platform stake holders as lacking.
 
-I think that this can be helped greatly by not leaving it to just the devs to figure this out by themselves. Code monkeys don't necessarily make the very best communicators and people coordinators :)
+I think that this can be helped greatly by not leaving it to just the devs to figure this out by themselves. Code monkeys don't necessarily make the best communicators and people coordinators :)
 
 ## A prototype that was not thrown away
 
-The C# only prototype we did early on proved extremely valuable. It formed a feedback bridge to other teams and allowed us to try out and reshape ideas.
+The C# only prototype we did early on proved highly valuable. It formed a feedback bridge to other teams and allowed us to try out and reshape ideas.
 
 However, there wasn't the step *after* the prototype where you take a step back, take all that you have learned, ask some hard questions, and progress to writing a production quality system.
 
@@ -47,7 +47,7 @@ When the XR team expressed rapidly evolving needs around input, I made the call 
 
 In retrospect, I think this probably was a mistake. One problem is that the XR team in particular has very specific deadlines tied to big platform contracts. Committing to them means committing to their deadlines and to leave them hanging means putting the XR team into a serious conundrum.
 
-While a lot of good came out of this and the close collaboration with Scott Flynn's team in Bellevue, I think it led to some questions not being asked for the sake of "hey, we need X done by Y".
+While a lot of good came out of this and the close collaboration with Scott Flynn's team in Bellevue, I think it led to some questions not being asked in the face of "hey, we need X done by Y".
 
 It also became a problem after being combined with the following...
 
