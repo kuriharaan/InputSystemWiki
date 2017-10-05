@@ -49,3 +49,5 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * Action sets can be read from JSON
 * Bindings can get grouped in named sets
 * Binding sets can be read from JSON
+* Action sets no longer generate code
+
