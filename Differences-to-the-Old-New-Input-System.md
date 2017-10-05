@@ -26,6 +26,7 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * Device profiles are replaced by templates which can both describe as well as alter control setups
 * Devices/control setups can be described using JSON
 * Metadata for discovered devices is still delivered through InputDeviceDescription (renamed from InputDeviceDescriptor)
+* Every device has a numeric ID now which is managed by native
 
 ## Controls
 
@@ -43,3 +44,7 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * Actions solely work through callbacks now
 * Actions monitor for state value changes in bulk rather than on a per-action basis
 * Bindings are a simple structs now containing a simple action name -> source path mapping
+* Actions can be grouped in named sets
+* Action sets can be read from JSON
+* Bindings can get grouped in named sets
+* Binding sets can be read from JSON
