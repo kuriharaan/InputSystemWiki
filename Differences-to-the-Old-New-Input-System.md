@@ -16,14 +16,16 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 
 ## State
 
-* State storage is managed centrally; all devices share the same chunk of memory
+* State storage is managed centrally; all devices share the same chunk of (unmanaged) memory
 * State cannot accumulate anymore (-> pointer deltas)
 * State cannot automatically reset anymore (-> pointer deltas)
+* Double buffering (previous and current) is handled centrally instead of per-control
 
 ## Devices
 
 * Device profiles are replaced by templates which can both describe as well as alter control setups
 * Devices/control setups can be described using JSON
+* Metadata for discovered devices is still delivered through InputDeviceDescription (renamed from InputDeviceDescriptor)
 
 ## Controls
 
@@ -38,3 +40,6 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * Actions can be lose
 * Actions can be created in code without assets to back them
 * Actions now deal with state change rather than state values
+* Actions solely work through callbacks now
+* Actions monitor for state value changes in bulk rather than on a per-action basis
+* Bindings are a simple structs now containing a simple action name -> source path mapping
