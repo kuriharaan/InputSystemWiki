@@ -35,6 +35,7 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * Devices are the root entry points into control hierarchies
 * Controls and devices can be looked up using flexible path strings that can match an arbitrary number of controls
 * The concept of "common controls" is replaced by the concept of "usage" which gives meaning to a control
+* Control hierarchies are now created in a single place (InputControlSetup) from a single source of data (InputTemplate)
 
 ## Actions
 
