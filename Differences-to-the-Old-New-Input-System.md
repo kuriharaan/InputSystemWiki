@@ -42,7 +42,7 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * Actions can be lose
 * Actions can be created in code without assets to back them
 * Actions now deal with state change rather than state values
-* Actions solely work through callbacks now
+* Actions solely work through callbacks now (onStarted, onPerformed, onCancelled)
 * Actions monitor for state value changes in bulk rather than on a per-action basis
 * Bindings are a simple structs now containing a simple action name -> source path mapping
 * Actions can be grouped in named sets
