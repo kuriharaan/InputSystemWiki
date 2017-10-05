@@ -10,9 +10,9 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * There is no routing of events; InputManager processes events in a tight loop
 * There are no events anymore that require interpretation
 
-    What this means is that before you had something like PointerEvent, for example, which encapsulated multiple state changes on a pointer device. The Pointer class in its ProcessEventIntoState() method would then figure out how those state changes translated into value changes on controls.
-
-    What you have now is only StateEvents and DeltaEvents. Both memcpy data directly into the state buffer of a device. There can be no interpretation of which data has to go where -- the event needs to come in in the right format.
+>What this means is that before you had something like PointerEvent, for example, which encapsulated multiple state changes on a pointer device. The Pointer class in its ProcessEventIntoState() method would then figure out how those state changes translated into value changes on controls.
+>
+>What you have now is only StateEvents and DeltaEvents. Both memcpy data directly into the state buffer of a device. There can be no interpretation of which data has to go where -- the event needs to come in in the right format.
 
 ## State
 
