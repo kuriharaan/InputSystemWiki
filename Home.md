@@ -4,4 +4,6 @@ Not a great deal here.
 
 [Or see some code snippets showing how to achieve various things.](https://github.com/Unity-Technologies/InputSystemX/wiki/How-Do-I...)
 
-[Or read up on some things about the old new input system from a guy who was there.](https://github.com/Unity-Technologies/InputSystemX/wiki/Old-New-Input-System-Postmortem)
+[Also, if you know some things about the old new input system, you might be interested in how this one is different.](https://github.com/Unity-Technologies/InputSystemX/wiki/Differences-to-the-Old-New-Input-System)
+
+[Lastly, you can read up on some things about the old new input system from a guy who was there.](https://github.com/Unity-Technologies/InputSystemX/wiki/Old-New-Input-System-Postmortem)
