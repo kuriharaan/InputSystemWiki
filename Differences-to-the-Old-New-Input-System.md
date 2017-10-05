@@ -35,7 +35,8 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 ## Devices
 
 * Device profiles are replaced by templates which can both describe as well as alter control setups
-* Devices/control setups can be described using JSON
+* Devices/control setups (templates) can be described using JSON
+* They can also be created automatically by reflecting on state structures and control classes
 * Metadata for discovered devices is still delivered through InputDeviceDescription (renamed from InputDeviceDescriptor)
 * Every device has a numeric ID now which is managed by native
 
