@@ -14,11 +14,22 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 >
 >What you have now is only StateEvents and DeltaEvents. Both memcpy data directly into the state buffer of a device. There can be no interpretation of which data has to go where -- the event needs to come in in the right format.
 
+* Events are no longer time-sliced
+
+>What this means is that the system will not try to parcel out events individually to fixed updates. Instead, all events will be processed every update (before render updates are still special, though).
+>
+>One consequence of this is that if you get multiple fixed updates in a single dynamic update, the second fixed update will not see any change in values.
+
 ## State
 
 * State storage is managed centrally; all devices share the same chunk of (unmanaged) memory
 * State cannot accumulate anymore (-> pointer deltas)
 * State cannot automatically reset anymore (-> pointer deltas)
+
+>What these two items mean is that before you were able to just send a bunch of pointer events each having a pointer motion delta. The system would then go and aggregate multiple deltas that happened in a single frame and combine them into a final value. It would also go and reset deltas automatically at the beginning of the next frame.
+>
+>To get the same effect now, accumulation and resetting has to be handled at the source. I.e. code that generates state that includes deltas has to accumulate samples itself and has to make sure it is sending events to reset deltas when necessary.
+
 * Double buffering (previous and current) is handled centrally instead of per-control
 
 ## Devices
