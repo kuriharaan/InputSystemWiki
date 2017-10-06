@@ -95,7 +95,7 @@ An example of such a struct is [GamepadState](https://github.com/Unity-Technolog
 
 Byte regions in states can be assigned "change monitors". If monitors are set up for a particular state and that state receives a state event, the system will perform MemCmps of the state-to-be-assigned to the state-currently-stored. If contents of the given memory region in the state are different, a change notification is triggered.
 
-This system is not publicly accessible and is specific to actions. InputManager.AddStateChangeMonitor sets up a monitor and InputAction.NotifyControlValueChanged() receives the notifications (*after* the new state has been committed to memory using MemCpy).
+This system is not publicly accessible and is specific to actions. `InputManager.AddStateChangeMonitor()` sets up a monitor and `InputAction.NotifyControlValueChanged()` receives the notifications (*after* the new state has been committed to memory using MemCpy).
 
 ## Events
 
@@ -106,7 +106,7 @@ There's two main kinds of events:
 1. Events that push new state into devices ([StateEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/StateEvent.cs) is a full-state update, [DeltaEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DeltaEvent.cs) is a partial-state update).
 2. Events that relate other relevant information about devices ([disconnects](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DisonnectEvent.cs) and [reconnects](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/ConnectEvent.cs), [text input](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/TextInput.cs), etc).
 
-Events are accumulated on a queue which sits in the engine itself (NativeInputSystem). The event representation is shared with the code code (Modules/Input) and is flexible. An event basically is a FourCC type code, a size in bytes, a timestamps, and a flexible payload. We put some upper bound on the size of events but they can be large.
+Events are accumulated on a queue which sits in the engine itself (`NativeInputSystem`). The event representation is shared with the code code (`Modules/Input`) and is flexible. An event basically is a FourCC type code, a size in bytes, a timestamps, and a flexible payload. We put some upper bound on the size of events but they can be large.
 
 State events (both [StateEvents](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/StateEvent.cs) and [DeltaEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DeltaEvent.cs)) employ identical state layouts with the control hierarchy of the device they are targeting. Basic FourCC type checks are in place to catch blatant errors.
 
@@ -115,6 +115,10 @@ The data in state events is simply memcopied over the current state of the devic
 For high-frequency value changes where it may be important to send every single value change with its own time stamp instead of aggregating events at the source, it may be advisable to use [DeltaEvent](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/DeltaEvent.cs) instead of sending a full device state snapshot every time.
 
 There is no class representation of events. The user can listen to the event stream but will get an [InputEventPtr](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/InputEventPtr.cs) that require unsafe code in order to work with the data. For the most part, the event stream is *not* meant for consumption at a user level. It is expected that users dealing with events directly will mostly be those authoring new device backends.
+
+The event stream is *NOT* visible to the user. The user can feed events but processing happens internal to the system.
+
+>////TODO: I think it makes sense to expose a callback that receives an InputEventPtr to an event before it is processed; have this prototyped but not committed to the current codebase
 
 # Active
 
@@ -138,11 +142,15 @@ An action has four phases:
 >find out whether the actual value inside the state has changed, an action still has to do work.
 >
 >Actions employ state change notifications to not have to poll every single state they are interested in
->for every single frame.
+>for every single frame. See "State Change Monitors" above.
 
 ### Sources
 
-Every action needs to be told which state to monitor for change. This is done by assigning one or more control path expressions to an action. Each such expression can match zero or more controls in the system. As new controls are added to the system or controls are removed, an action will automatically update its set of targeted controls.
+Every action needs to know the controls it should monitor for state changes. The number of controls is not limited.
+
+These sources are determined for an action by giving it a binding which contains a path that is used to match controls in the system.
+
+If the control setup of the system is changed, actions will automatically update their set of controls. This means that as new devices are added, for example, if any of their controls match an action's source path, they will automatically hook up with actions.
 
 ## Modifiers
 
@@ -150,7 +158,7 @@ A modifier controls an action's progression through its phases. An example is a 
 
 ## Bindings
 
-A binding correlates an action with one or more sources. While sources can be specified directly on actions, bindings are a way to override and externally supply bindings to actions.
+A binding correlates an action with one or more sources.
 
 ## Action Sets
 
