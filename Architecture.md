@@ -91,6 +91,8 @@ An example of such a struct is [GamepadState](https://github.com/Unity-Technolog
 >have to build that behavior into the state event generation part. An example are pointer deltas which require
 >both accumulation during frames and resetting between frames. The system cannot do that automatically for you.
 
+State is double-buffered to keep a copy of the current values of controls and a copy of the previous values. Buffer swapping is automatic and is handled on a per-device basis, i.e. for every device we decide when to swap based on state events coming in (see [InputStateBuffers](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/State/InputStateBuffers.cs) for an explanation).
+
 ### State Change Monitors
 
 Byte regions in states can be assigned "change monitors". If monitors are set up for a particular state and that state receives a state event, the system will perform MemCmps of the state-to-be-assigned to the state-currently-stored. If contents of the given memory region in the state are different, a change notification is triggered.
