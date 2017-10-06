@@ -28,7 +28,7 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 
 >What these two items mean is that before you were able to just send a bunch of pointer events each having a pointer motion delta. The system would then go and aggregate multiple deltas that happened in a single frame and combine them into a final value. It would also go and reset deltas automatically at the beginning of the next frame.
 >
->To get the same effect now, accumulation and resetting has to be handled at the source. I.e. code that generates state that includes deltas has to accumulate samples itself and has to make sure it is sending events to reset deltas when necessary.
+>To get the same effect now, accumulation and resetting has to be handled at the source. I.e. code that generates state that includes deltas has to accumulate samples itself and has to make sure it is sending events to reset deltas when necessary. You can't write an equivalent of the old DeltaAxisControl in the new system.
 
 * Double buffering (previous and current) is handled centrally instead of per-control
 
