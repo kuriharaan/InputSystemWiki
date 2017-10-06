@@ -145,7 +145,7 @@ An action has four phases:
 >can only know that a piece of state has changed that *contains* the value the action is interested in. To
 >find out whether the actual value inside the state has changed, an action still has to do work.
 >
->Actions employ state change notifications to not have to poll every single state they are interested in
+>Actions employ state change monitors to not have to poll every single state they are interested in
 >for every single frame. See "State Change Monitors" above.
 
 ### Sources
