@@ -21,7 +21,7 @@ Controls are named and form hierarchies. Controls in a hierarchy can be looked u
 
 Path matching is efficient and does not allocate garbage.
 
-In addition to wildcards, controls can be matched by usage ("/gamepad/{primaryAction}") and by template ("/gamepad/<button>").
+In addition to wildcards, controls can be matched by usage (`/gamepad/{primaryAction}`) and by template (`/gamepad/<button>`).
 
 Matching is case-insensitive.
 
