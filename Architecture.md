@@ -59,15 +59,25 @@ Templates can be constructed in three ways:
 
 Templates have to be registered explicitly with the system. There is no automatic scanning. Any template can be replaced at any time by simply registering a template with an already registered name. Replacing templates will automatically take effect on all devices that are using the template.
 
+A control hierarchy must be completely described by its template. It it thus be possible to re-create any control hierarchy by reprocessing its template.
+
 Internally, templates are represented using [InputTemplate](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputTemplate.cs). However, these objects are created on-demand only inside [InputControlSetup](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputControlSetup.cs) and not kept in memory past device creation. For templates derived from types, only a reference the type and name are kept around. For templates created through JSON, the JSON data itself is kept around. For templates built in code through InputTemplateBuilder, the serialized JSON of the resulting template is kept around.
 
 ## Devices
 
 Devices are controls that sit at the root of a control hierarchy. They have to be instances of [InputDevice](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Devices/InputDevice.cs).
 
+Devices act as central storage containers to their control hierarchy. State blocks in the global buffers are assigned on a per-device basis.
+
+Every device gets a unique numeric ID when added to the system. The IDs are managed by the native input system.
+
+Devices must have unique names. When a device is added to the system with an already used named, the name will automatically be adjusted (e.g. "gamepad" becomes "gamepad1").
+
+Lookup of control paths starts with devices at the root (e.g. "/gamepad*/leftStick").
+
 ## State
 
-Values of controls are stored in state buffers. There are multiple buffers serving different purposes but all devices in the system share the same buffers and all buffers share the same single allocation.
+Values of controls are stored in state buffers. There are multiple buffers serving different purposes but all devices in the system share the same buffers and all buffers share the same single allocation in unmanaged memory.
 
 Every control hierarchy gets its own layout which is determined by [InputControlSetup](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputControlSetup.cs). The layouts can be a combination of automatic layouting as well as fixed offset layouts supplied by templates.
 
@@ -80,6 +90,12 @@ An example of such a struct is [GamepadState](https://github.com/Unity-Technolog
 >There are no "smarts" built into the state system. If you need specific behavior in your state over time, you
 >have to build that behavior into the state event generation part. An example are pointer deltas which require
 >both accumulation during frames and resetting between frames. The system cannot do that automatically for you.
+
+### State Change Monitors
+
+Byte regions in states can be assigned "change monitors". If monitors are set up for a particular state and that state receives a state event, the system will perform MemCmps of the state-to-be-assigned to the state-currently-stored. If contents of the given memory region in the state are different, a change notification is triggered.
+
+This system is not publicly accessible and is specific to actions. InputManager.AddStateChangeMonitor sets up a monitor and InputAction.NotifyControlValueChanged() receives the notifications (*after* the new state has been committed to memory using MemCpy).
 
 ## Events
 
