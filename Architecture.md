@@ -93,6 +93,8 @@ An example of such a struct is [GamepadState](https://github.com/Unity-Technolog
 
 State is double-buffered to keep a copy of the current values of controls and a copy of the previous values. Buffer swapping is automatic and is handled on a per-device basis, i.e. for every device we decide when to swap based on state events coming in (see [InputStateBuffers](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/State/InputStateBuffers.cs) for an explanation).
 
+In certain scenarios, we have more than one set of double buffers. In the editor, this is always the case in order to separate edit mode from play mode device state (only one receives state events based on focus while the other is dormant). Also, for player updates, it is the case if both dynamic and fixed updates are enabled (the default because we can't know where the user is querying state). A game is expected to decide on which update to employ and to disable the update it doesn't need. In a player, it will then have a single set of double buffers.
+
 ### State Change Monitors
 
 Byte regions in states can be assigned "change monitors". If monitors are set up for a particular state and that state receives a state event, the system will perform MemCmps of the state-to-be-assigned to the state-currently-stored. If contents of the given memory region in the state are different, a change notification is triggered.
