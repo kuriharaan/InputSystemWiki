@@ -19,11 +19,17 @@ There is a range of pre-defined control types: [ButtonControl](https://github.co
 
 Controls are named and form hierarchies. Controls in a hierarchy can be looked up by path (e.g. "/gamepad/leftStick" but can also include patterns like in "/*/leftStick").
 
+Path matching is efficient and does not allocate garbage.
+
+In addition to wildcards, controls can be matched by usage ("/gamepad/{primaryAction}") and by template ("/gamepad/<button>").
+
+Matching is case-insensitive.
+
 ### Usages
 
 Every control may have one or more usages associated with it. Usages give meaning to a control. For example, there's a "Back" usage which is associated with the "Escape" key on a keyboard and with the "B" button on a gamepad. The following code checks wether a button with the "Back" usage was pressed to close a UI. This code will work with both gamepads and keyboards (and any other template making use of the "Back" usage).
 
-    if (InputSystem.GetControls<Button>("**/Back").Any(x => x.wasPressedThisFrame))
+    if (InputSystem.GetControls<Button>("**/<Back>").Any(x => x.wasPressedThisFrame))
         CloseMyUI();
 
 >Of course, this is *NOT* how you would write it in a game. Normally you'd use actions which do the lookup
