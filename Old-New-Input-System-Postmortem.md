@@ -12,7 +12,7 @@ There was an entire year where nothing happened.
 
 ## Getting sidetracked
 
-At one point the concern was raised that "Unity should not get yet another event system". An effort for "unified event handling" was brought to life and I stupidly shouldered the burden of making that happen. Even after multiple meetings it was not clear what the exact objective actually was and what the work to be done was.
+At one point the concern was raised that "Unity should not get yet another event system". An effort for "unified event handling" was brought to life and I naively shouldered the burden of making that happen. Even after multiple meetings it was not clear what the exact objective actually was and what the work to be done was.
 
 This stalled work on critical parts of the input system and ended up taking all momentum out of the project as I was stumbling around and Rune was left with major uncertainty cast over significant portions of the system. I didn't realize how poisonous this was to the project until I found myself jumping on the first opportunity to work on something else. Only with some distance did I realize that I had never made sure I was taking on a well-defined task.
 
