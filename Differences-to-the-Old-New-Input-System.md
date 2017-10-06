@@ -31,6 +31,7 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 >To get the same effect now, accumulation and resetting has to be handled at the source. I.e. code that generates state that includes deltas has to accumulate samples itself and has to make sure it is sending events to reset deltas when necessary. You can't write an equivalent of the old DeltaAxisControl in the new system.
 
 * Double buffering (previous and current) is handled centrally instead of per-control
+* State memory is always linear; a device maps to a single contiguous block of memory
 
 ## Devices
 
