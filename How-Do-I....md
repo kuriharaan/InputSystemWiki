@@ -128,3 +128,17 @@ Extend the "Gamepad" template and customize its controls.
              // controls and so on and on.
         ]
     }
+
+# ... have my own template used when the native backend discovers a specific type?
+
+Simply describe the device in the template.
+
+     {
+        "name" : "MyGamepad",
+        "extend" : "Gamepad",
+        "device" : {
+            // All strings in here are regexs and case-insensitive.
+            "product" : "MyController",
+            "manufacturer" : "MyCompany"
+        }
+     }
