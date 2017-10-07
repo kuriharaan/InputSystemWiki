@@ -75,3 +75,8 @@ Alternatively, you can create your own InputDevice class and state layouts in C#
              base.FinishSetup(setup);
         }
     }
+
+To create an instance of your device, register it as a template and then instantiate it
+
+    InputSystem.RegisterTemplate("MyDevice", typeof(MyDevice));
+    InputSystem.AddDevice("MyDevice");
