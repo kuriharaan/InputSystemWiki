@@ -1,5 +1,3 @@
-//move to google docs
-
 This is my own personal evaluation of what went wrong with the "old new input system."
 
 >I will only speak to my own mistakes (or ones to which I contributed significantly) as well as to mistakes I see as systemic.
