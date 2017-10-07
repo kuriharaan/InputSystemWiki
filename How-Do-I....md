@@ -30,7 +30,7 @@ Or match devices by name:
 
 Or you can just go through the list of InputDevices directly.
 
-    InputSystem.devices.All(x => x is Gamepad);
+    InputSystem.devices.Select(x => x is Gamepad);
 
 # ... create a device?
 
