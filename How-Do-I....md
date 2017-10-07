@@ -3,7 +3,7 @@
 One way is to use actions.
 
     var myAction = new InputAction(binding: "/*/<button>");
-    myAction.onPerformed += (action, control) => Debug.Log("Button pressed!";
+    myAction.onPerformed += (action, control) => Debug.Log("Button pressed!");
     myAction.Enable();
 
 However, this is dirt inefficient. The amount of processing an action has to do is directly correlated with the amount of controls it is targeting. Targeting every single button of every single device will yield a ton of controls and result in high processing overhead. The keyboard alone will contribute a ton of buttons each of which will have to be processed individually.
