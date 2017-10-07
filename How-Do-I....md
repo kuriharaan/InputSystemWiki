@@ -163,7 +163,7 @@ Simply put a deadzone processor on the sticks.
                 "processors" : "deadzone(0.125,0.925)"
             }
         ]
-     }
+    }
 
 You can do the same in your C# state structs.
 
@@ -176,3 +176,15 @@ You can do the same in your C# state structs.
     }
 
 I'm still working on a way to do add a deadzone processor conveniently on the fly to an existing gamepad instance.
+
+# ... give my head tracking an extra update before rendering?
+
+First enable before render updates on your device.
+
+    {
+        "name" : "MyHMD",
+        "extend" : "HMD",
+        "beforeRender" : "Update"
+    }
+
+And then make sure you put extra StateEvents for your HMD on the queue right in time before rendering. Also, if your HMD is a combination of non-tracking and tracking controls, you can update just the tracking, if you want to, by sending a DeltaEvent instead of a full StateEvent.
