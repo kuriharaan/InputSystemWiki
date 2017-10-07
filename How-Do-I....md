@@ -188,3 +188,7 @@ First enable before render updates on your device.
     }
 
 And then make sure you put extra StateEvents for your HMD on the queue right in time before rendering. Also, if your HMD is a combination of non-tracking and tracking controls, you can update just the tracking, if you want to, by sending a DeltaEvent instead of a full StateEvent.
+
+# ... simulate HMD movement from mouse and keyboard?
+
+    I'm working on a callback that allows state to be updated from state and see the change in the same frame
