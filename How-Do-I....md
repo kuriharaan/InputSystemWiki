@@ -1,3 +1,16 @@
+# ... wait for any button to be pressed on any device?
+
+One way is to use actions.
+
+    var myAction = new InputAction(binding: "/*/<button>");
+    myAction.onPerformed += (action, control) => Debug.Log("Button pressed!";
+
+However, this is dirt inefficient. The amount of processing an action has to do is directly correlated with the amount of controls it is targeting. Targeting every single button of every single device will yield a ton of controls and result in high processing overhead.
+
+A more efficient way is to just listen for any activity on any device and when there was activity, find out whether it came from a button.
+
+    ... still being worked on; can already listen on whole devices but you won't know what control caused the state change.
+
 # ... check if the space key has been pressed this frame?
 
     Keyboard.current.space.wasPressedThisFrame
@@ -87,7 +100,7 @@ Extend the "Gamepad" template and customize its controls.
 
      {
         "name" : "MyGamepad",
-        "extend" : "Gamepad", // Or some other thing
+        "extend" : "Gamepad",
         "controls" : [
              // Say you want to store the sticks as shorts instead of floats.
              {
