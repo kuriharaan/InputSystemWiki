@@ -53,7 +53,7 @@ Templates can be constructed in two ways:
 
 Templates have to be registered explicitly with the system. There is no automatic scanning. Any template can be replaced at any time by simply registering a template with an already registered name. Replacing templates will automatically take effect on all devices that are using the template.
 
-A control hierarchy must be completely described by its template. It it thus be possible to re-create any control hierarchy by reprocessing its template.
+A control hierarchy must be completely described by its template. It it thus possible to re-create any control hierarchy by reprocessing its template.
 
 Internally, templates are represented using [InputTemplate](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputTemplate.cs). However, these objects are created on-demand only inside [InputControlSetup](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputControlSetup.cs) and not kept in memory past device creation. For templates derived from types, only a reference to the type and name are kept around. For templates created through JSON, the JSON data itself is kept around. For templates built in code through InputTemplateBuilder, the serialized JSON of the resulting template is kept around.
 
