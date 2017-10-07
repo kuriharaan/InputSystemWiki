@@ -145,3 +145,24 @@ Simply describe the device in the template.
             "manufacturer" : "MyCompany"
         }
      }
+
+# ... add deadzoning to my gamepad sticks?
+
+Simply put a deadzone processor on the sticks.
+
+     {
+        "name" : "MyGamepad",
+        "extend" : "Gamepad",
+        "controls" : [
+            {
+                "name" : "leftStick",
+                "processors" : "deadzone(0.125,0.925)"
+            },
+            {
+                "name" : "rightStick",
+                "processors" : "deadzone(0.125,0.925)"
+            }
+        ]
+     }
+
+I'm still working on a way to do this conveniently on the fly with an existing gamepad instance.
