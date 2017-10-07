@@ -80,3 +80,37 @@ To create an instance of your device, register it as a template and then instant
 
     InputSystem.RegisterTemplate("MyDevice", typeof(MyDevice));
     InputSystem.AddDevice("MyDevice");
+
+# ... choose a different state layout for my gamepad?
+
+Extend the "Gamepad" template and customize its controls.
+
+     {
+        "name" : "MyGamepad",
+        "extend" : "Gamepad", // Or some other thing
+        "controls" : [
+             // Say you want to store the sticks as shorts instead of floats.
+             {
+                 "name" : "leftStick/x",
+                 "format" : "SHRT",
+                 "offset" : 4
+             },
+             {
+                 "name" : "leftStick/y",
+                 "format" : "SHRT",
+                 "offset" : 6
+             },
+             {
+                 "name" : "rightStick/y",
+                 "format" : "SHRT",
+                 "offset" : 8
+             },
+             {
+                 "name" : "rightStick/y",
+                 "format" : "SHRT",
+                 "offset" : 10
+             }
+             // You can also freely add new controls or change the templates on existing
+             // controls and so on and on.
+        ]
+    }
