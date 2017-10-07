@@ -165,4 +165,14 @@ Simply put a deadzone processor on the sticks.
         ]
      }
 
-I'm still working on a way to do this conveniently on the fly with an existing gamepad instance.
+You can do the same in your C# state structs.
+
+    public struct MyDeviceState
+    {
+        [InputControl(processors = "deadzone(0.125,0.925)"]
+        public StickControl leftStick;
+        [InputControl(processors = "deadzone(0.125,0.925)"]
+        public StickControl rightStick;
+    }
+
+I'm still working on a way to do add a deadzone processor conveniently on the fly to an existing gamepad instance.
