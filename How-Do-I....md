@@ -1,10 +1,14 @@
-# ... Find All Connected Gamepads?
+# ... check if the space key has been pressed this frame?
+
+    Keyboard.current.space.wasPressedThisFrame
+
+# ... find all connected gamepads?
 
 Multiple ways.
 
 Can use a path to get all devices using the "gamepad" template:
 
-    InputSystem.GetControls("/<gamepad>";
+    InputSystem.GetControls("/<gamepad>");
 
 Or match devices by name:
 
@@ -14,13 +18,13 @@ Or you can just go through the list of InputDevices directly.
 
     InputSystem.devices.All(x => x is Gamepad);
 
-# ... Create a Device?
+# ... create a device?
 
     InputSystem.AddDevice("Gamepad");
 
 The given string is a template name.
 
-# ... Create My Own Custom Device?
+# ... create my own custom devices?
 
 Two possible ways. If you are okay with using one of the existing C# InputDevice classes in code to interface with your device, you can just build on an existing template using JSON.
 
