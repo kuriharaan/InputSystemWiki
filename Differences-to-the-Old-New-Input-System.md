@@ -7,7 +7,7 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * Events still come in as a chunk of raw memory passed on directly from native
 * There is only one event queue and it sits in native
 * There are no C# event objects anymore
-* There is no routing of events; InputManager processes events in a (more or less) tight loop
+* There is no routing of events; InputManager processes events in a (more or less) tight loop (jobifyable)
 * There are no events anymore that require interpretation
 
 >What this means is that before you had something like PointerEvent, for example, which encapsulated multiple state changes on a pointer device. The Pointer class in its ProcessEventIntoState() method would then figure out how those state changes translated into value changes on controls.
