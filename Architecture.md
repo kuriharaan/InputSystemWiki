@@ -114,10 +114,6 @@ For high-frequency value changes where it may be important to send every single 
 
 There is no class representation of events. The user can listen to the event stream but will get an [InputEventPtr](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/InputEventPtr.cs) that require unsafe code in order to work with the data. For the most part, the event stream is *not* meant for consumption at a user level. It is expected that users dealing with events directly will mostly be those authoring new device backends.
 
-The event stream is *NOT* visible to the user. The user can feed events but processing happens internal to the system.
-
->////TODO: I think it makes sense to expose a callback that receives an InputEventPtr to an event before it is processed; have this prototyped but not committed to the current codebase
-
 # Active
 
 The "active" part of the system requires explicit setup by the user and incurs processing overhead proportional to the amount of enabled functionality. Unlike the "passive" part, it is concerned with state *change* rather than with state itself.
