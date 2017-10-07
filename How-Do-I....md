@@ -1,3 +1,19 @@
+# ... Find All Connected Gamepads?
+
+Multiple ways.
+
+Can use a path to get all devices using the "gamepad" template:
+
+    InputSystem.GetControls("/<gamepad>";
+
+Or match devices by name:
+
+    InputSystem.GetControls("/gamepad*);
+
+Or you can just go through the list of InputDevices directly.
+
+    InputSystem.devices.All(x => x is Gamepad);
+
 # ... Create a Device?
 
     InputSystem.AddDevice("Gamepad");
