@@ -53,7 +53,7 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 
 ## Actions
 
-* Actions can be lose
+* Actions can be lose (as in not part of collections/assets)
 * Actions can be created in code without assets to back them
 * Actions now deal with state change rather than state values
 * Actions solely work through callbacks now (onStarted, onPerformed, onCancelled)
