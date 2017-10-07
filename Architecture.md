@@ -51,11 +51,10 @@ Note that as the system permits structured values, it's possible to perform oper
 
 Templates describe control hierarchies. [InputControlSetup](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputControlSetup.cs) turns them into a hierarchy of [InputControls](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputControl.cs).
 
-Templates can be constructed in three ways:
+Templates can be constructed in two ways:
 
 1. From JSON
 2. Through reflection on control and state types
-3. Manually through [InputTemplateBuilder](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Controls/InputTemplateBuilder.cs)
 
 Templates have to be registered explicitly with the system. There is no automatic scanning. Any template can be replaced at any time by simply registering a template with an already registered name. Replacing templates will automatically take effect on all devices that are using the template.
 
