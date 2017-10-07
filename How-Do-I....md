@@ -23,17 +23,25 @@ You simply register your template with the system and then instantiate it.
 
 Alternatively, you can create your own InputDevice class and state layouts in C#.
 
-    public struct MyDeviceState
+    public struct MyDeviceState : IInputStateTypeInfo
     {
+        // FourCC type codes are used identify the memory layouts of state blocks.
+        public static FourCC kFormat = new FourCC('M', 'D', 'E', 'V');
+
         [InputControl(name = "firstButton", template = "Button", bit = 0)]
         [InputControl(name = "secondButton", template = "Button", bit = 1)]
         public int buttons;
         [InputControl(template = "Analog", parameters="clamp=true,clampMin=0,clampMax=1")]
         public float axis;
+
+        public FourcCC GetFormat()
+        {
+             return kFormat;
+        }
     }
 
     [InputState(typeof(MyDeviceState)]
-    public class MyDeviceState
+    public class MyDevice : InputDevice
     {
         public ButtonControl firstButton { get; private set; }
         public ButtonControl secondButton { get; private set; }
