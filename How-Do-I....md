@@ -4,7 +4,7 @@ One way is to use actions.
 
 ```C#
     var myAction = new InputAction(binding: "/*/<button>");
-    myAction.onPerformed += (action, control) => Debug.Log("Button pressed!");
+    myAction.onPerformed += (action, control) => Debug.Log($"Button {control.name} pressed!");
     myAction.Enable();
 ```
 
