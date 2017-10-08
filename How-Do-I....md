@@ -194,11 +194,11 @@ Simply put a deadzone processor on the sticks.
         "controls" : [
             {
                 "name" : "leftStick",
-                "processors" : "deadzone(0.125,0.925)"
+                "processors" : "deadzone(min=0.125,max=0.925)"
             },
             {
                 "name" : "rightStick",
-                "processors" : "deadzone(0.125,0.925)"
+                "processors" : "deadzone(min=0.125,max=0.925)"
             }
         ]
     }
@@ -209,14 +209,16 @@ You can do the same in your C# state structs.
 ```C#
     public struct MyDeviceState
     {
-        [InputControl(processors = "deadzone(0.125,0.925)"]
+        [InputControl(processors = "deadzone(min=0.125,max=0.925)"]
         public StickControl leftStick;
-        [InputControl(processors = "deadzone(0.125,0.925)"]
+        [InputControl(processors = "deadzone(min=0.125,max=0.925)"]
         public StickControl rightStick;
     }
 ```
 
-I'm still working on a way to do add a deadzone processor conveniently on the fly to an existing gamepad instance.
+In fact, the gamepad template already adds a deadzone processor which will take its min and max values from `InputConfiguration.DefaultDeadzoneMin` and `InputConfiguration.DefaultDeadzoneMax`.
+
+    I'm still working on a way to do add a deadzone processor conveniently on the fly to an existing gamepad instance.
 
 # ... give my head tracking an extra update before rendering?
 
