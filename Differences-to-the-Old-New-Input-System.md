@@ -50,6 +50,8 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * Controls and devices can be looked up using flexible path strings that can match an arbitrary number of controls
 * The concept of "common controls" is replaced by the concept of "usage" which gives meaning to a control
 * Control hierarchies are now created in a single place (InputControlSetup) from a single source of data (InputTemplate)
+* Remapping happens as a side effect of controls setup rather than being performed at the event level; as such there is no associated cost with it
+* There are no control IDs anymore
 
 ## Actions
 
