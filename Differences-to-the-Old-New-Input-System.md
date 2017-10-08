@@ -52,6 +52,7 @@ This page highlights a number of ways in how [InputSystemX](https://github.com/U
 * Control hierarchies are now created in a single place (InputControlSetup) from a single source of data (InputTemplate)
 * Remapping happens as a side effect of control setup rather than being performed at the event level; as such there is no associated cost with it
 * There are no control IDs anymore
+* Control setups are entirely data driven (though there is support to create the data from code through reflection)
 
 ## Actions
 
