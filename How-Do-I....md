@@ -126,28 +126,31 @@ Extend the "Gamepad" template and customize its controls.
         "name" : "MyGamepad",
         "extend" : "Gamepad",
         "controls" : [
-             // Say you want to store the sticks as shorts instead of floats.
-             // AxisControl will automatically convert the shorts to (normalized)
-             // floats on the fly.
+             // Say you want to store the sticks as signed shorts instead of floats and
+             // Y happens to go the opposite way on your gamepad.
              {
                  "name" : "leftStick/x",
                  "format" : "SHRT",
-                 "offset" : 4
+                 "offset" : 4,
+                 "parameters" : "normalize,normalizeMin=-0.5,normalizeMax=0.5"
              },
              {
                  "name" : "leftStick/y",
                  "format" : "SHRT",
-                 "offset" : 6
+                 "offset" : 6,
+                 "parameters" = "invert,normalize,normalizeMin=-0.5,normalizeMax=0.5"
              },
              {
                  "name" : "rightStick/x",
                  "format" : "SHRT",
-                 "offset" : 8
+                 "offset" : 8,
+                 "parameters" : "normalize,normalizeMin=-0.5,normalizeMax=0.5"
              },
              {
                  "name" : "rightStick/y",
                  "format" : "SHRT",
-                 "offset" : 10
+                 "offset" : 10,
+                 "parameters" = "invert,normalize,normalizeMin=-0.5,normalizeMax=0.5"
              }
              // You can also freely add new controls or change the templates on existing
              // controls and so on and on.
