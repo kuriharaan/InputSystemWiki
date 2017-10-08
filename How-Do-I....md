@@ -35,7 +35,7 @@ Can use a path to get all devices using the "gamepad" template:
 Or match devices by name:
 
 ```C#
-    InputSystem.GetControls("/gamepad*);
+    InputSystem.GetControls("/gamepad*");
 ```
 
 Or you can just go through the list of InputDevices directly.
