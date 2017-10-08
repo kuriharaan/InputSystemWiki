@@ -2,19 +2,25 @@
 
 One way is to use actions.
 
+```C#
     var myAction = new InputAction(binding: "/*/<button>");
     myAction.onPerformed += (action, control) => Debug.Log("Button pressed!");
     myAction.Enable();
+```
 
 However, this is dirt inefficient. The amount of processing an action has to do is directly correlated with the amount of controls it is targeting. Targeting every single button of every single device will yield a ton of controls and result in high processing overhead. The keyboard alone will contribute a ton of buttons each of which will have to be processed individually.
 
 A more efficient way is to just listen for any activity on any device and when there was activity, find out whether it came from a button.
 
+```C#
     ... still being worked on; can already listen on whole devices but you won't know what control caused the state change.
+```
 
 # ... check if the space key has been pressed this frame?
 
+```C#
     Keyboard.current.space.wasPressedThisFrame
+```
 
 # ... find all connected gamepads?
 
@@ -22,19 +28,27 @@ Multiple ways.
 
 Can use a path to get all devices using the "gamepad" template:
 
+```C#
     InputSystem.GetControls("/<gamepad>");
+```
 
 Or match devices by name:
 
+```C#
     InputSystem.GetControls("/gamepad*);
+```
 
 Or you can just go through the list of InputDevices directly.
 
+```C#
     InputSystem.devices.Select(x => x is Gamepad);
+```
 
 # ... create a device?
 
+```C#
     InputSystem.AddDevice("Gamepad");
+```
 
 The given string is a template name.
 
@@ -42,6 +56,7 @@ The given string is a template name.
 
 Two possible ways. If you are okay with using one of the existing C# InputDevice classes in code to interface with your device, you can just build on an existing template using JSON.
 
+```JSON
     {
         "name" : "MyDevice",
         "extend" : "Gamepad", // Or some other thing
@@ -49,14 +64,18 @@ Two possible ways. If you are okay with using one of the existing C# InputDevice
              // ... customize control setup
         ]
     }
+```
 
 You simply register your template with the system and then instantiate it.
 
+```C#
     InputSystem.RegisterTemplate(myDeviceJson);
     var device = InputSystem.AddDevice("MyDevice");
+```
 
 Alternatively, you can create your own InputDevice class and state layouts in C#.
 
+```C#
     public struct MyDeviceState : IInputStateTypeInfo
     {
         // FourCC type codes are used identify the memory layouts of state blocks.
@@ -89,16 +108,20 @@ Alternatively, you can create your own InputDevice class and state layouts in C#
              base.FinishSetup(setup);
         }
     }
+```
 
 To create an instance of your device, register it as a template and then instantiate it
 
+```C#
     InputSystem.RegisterTemplate("MyDevice", typeof(MyDevice));
     InputSystem.AddDevice("MyDevice");
+```
 
 # ... choose a different state layout for my gamepad?
 
 Extend the "Gamepad" template and customize its controls.
 
+```JSON
      {
         "name" : "MyGamepad",
         "extend" : "Gamepad",
@@ -129,6 +152,7 @@ Extend the "Gamepad" template and customize its controls.
              // controls and so on and on.
         ]
     }
+```
 
 The same principle applies if on your device some buttons are swapped, for example. Simply remap their offsets.
 
@@ -136,6 +160,7 @@ The same principle applies if on your device some buttons are swapped, for examp
 
 Simply describe the device in the template.
 
+```JSON
      {
         "name" : "MyGamepad",
         "extend" : "Gamepad",
@@ -145,11 +170,13 @@ Simply describe the device in the template.
             "manufacturer" : "MyCompany"
         }
      }
+```
 
 # ... add deadzoning to my gamepad sticks?
 
 Simply put a deadzone processor on the sticks.
 
+```JSON
      {
         "name" : "MyGamepad",
         "extend" : "Gamepad",
@@ -164,9 +191,11 @@ Simply put a deadzone processor on the sticks.
             }
         ]
     }
+```
 
 You can do the same in your C# state structs.
 
+```C#
     public struct MyDeviceState
     {
         [InputControl(processors = "deadzone(0.125,0.925)"]
@@ -174,6 +203,7 @@ You can do the same in your C# state structs.
         [InputControl(processors = "deadzone(0.125,0.925)"]
         public StickControl rightStick;
     }
+```
 
 I'm still working on a way to do add a deadzone processor conveniently on the fly to an existing gamepad instance.
 
@@ -181,11 +211,13 @@ I'm still working on a way to do add a deadzone processor conveniently on the fl
 
 First enable before render updates on your device.
 
+```JSON
     {
         "name" : "MyHMD",
         "extend" : "HMD",
         "beforeRender" : "Update"
     }
+```
 
 And then make sure you put extra StateEvents for your HMD on the queue right in time before rendering. Also, if your HMD is a combination of non-tracking and tracking controls, you can update just the tracking, if you want to, by sending a DeltaEvent instead of a full StateEvent.
 
