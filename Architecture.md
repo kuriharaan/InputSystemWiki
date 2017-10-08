@@ -30,11 +30,11 @@ Every control may have one or more usages associated with it. Usages give meanin
     if (InputSystem.GetControls<Button>("/*/<Back>").Any(x => x.wasPressedThisFrame))
         CloseMyUI();
 
-    // But... *MUCH* more efficient to use actions. No repeated lookups by strings and much more efficient
-    // state monitoring.
+    // But... *MUCH* more efficient to use actions. No repeated lookups by strings and much
+    // more efficient state monitoring.
     var action = new InputAction(binding: "/*/<back");
     action.onPerformed += (a, c) => CloseMyUI();
-    action.Enabled();
+    action.Enable();
 ```
 
 ### Processors
