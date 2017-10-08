@@ -26,7 +26,7 @@ A more efficient way is to just listen for any activity on any device and when t
 
 Multiple ways.
 
-Can use a path to get all devices using the "gamepad" template:
+Can use a path to get all devices using the "gamepad" template (or any template based on the gamepad template):
 
 ```C#
     InputSystem.GetControls("/<gamepad>");
