@@ -26,11 +26,16 @@ Matching is case-insensitive.
 
 Every control may have one or more usages associated with it. Usages give meaning to a control. For example, there's a "Back" usage which is associated with the "Escape" key on a keyboard and with the "B" button on a gamepad. The following code checks wether a button with the "Back" usage was pressed to close a UI. This code will work with both gamepads and keyboards (and any other template making use of the "Back" usage).
 
-    if (InputSystem.GetControls<Button>("**/<Back>").Any(x => x.wasPressedThisFrame))
+```C#
+    if (InputSystem.GetControls<Button>("/*/<Back>").Any(x => x.wasPressedThisFrame))
         CloseMyUI();
 
->This is *NOT* how you would write it in a game. Normally you'd use actions which do the lookup
->once and will update automatically if new matching controls appear in the system (or existing ones disappear).
+    // But... *MUCH* more efficient to use actions. No repeated lookups by strings and much more efficient
+    // state monitoring.
+    var action = new InputAction(binding: "/*/<back");
+    action.onPerformed += (a, c) => CloseMyUI();
+    action.Enabled();
+```
 
 ### Processors
 
