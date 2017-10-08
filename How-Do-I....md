@@ -56,7 +56,7 @@ The given string is a template name.
 
 Two possible ways. If you are okay with using one of the existing C# InputDevice classes in code to interface with your device, you can just build on an existing template using JSON.
 
-```JSON
+```
     {
         "name" : "MyDevice",
         "extend" : "Gamepad", // Or some other thing
@@ -121,7 +121,7 @@ To create an instance of your device, register it as a template and then instant
 
 Extend the "Gamepad" template and customize its controls.
 
-```JSON
+```
      {
         "name" : "MyGamepad",
         "extend" : "Gamepad",
@@ -160,7 +160,7 @@ The same principle applies if on your device some buttons are swapped, for examp
 
 Simply describe the device in the template.
 
-```JSON
+```
      {
         "name" : "MyGamepad",
         "extend" : "Gamepad",
