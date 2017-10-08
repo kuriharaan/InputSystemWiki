@@ -127,7 +127,8 @@ Extend the "Gamepad" template and customize its controls.
         "extend" : "Gamepad",
         "controls" : [
              // Say you want to store the sticks as shorts instead of floats.
-             // AxisControl will automatically convert the shorts to (normalized) floats.
+             // AxisControl will automatically convert the shorts to (normalized)
+             // floats on the fly.
              {
                  "name" : "leftStick/x",
                  "format" : "SHRT",
