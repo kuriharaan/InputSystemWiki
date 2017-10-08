@@ -29,7 +29,7 @@ Every control may have one or more usages associated with it. Usages give meanin
     if (InputSystem.GetControls<Button>("**/<Back>").Any(x => x.wasPressedThisFrame))
         CloseMyUI();
 
->Of course, this is *NOT* how you would write it in a game. Normally you'd use actions which do the lookup
+>This is *NOT* how you would write it in a game. Normally you'd use actions which do the lookup
 >once and will update automatically if new matching controls appear in the system (or existing ones disappear).
 
 ### Processors
