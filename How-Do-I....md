@@ -140,7 +140,7 @@ Extend the "Gamepad" template and customize its controls.
                  "offset" : 6
              },
              {
-                 "name" : "rightStick/y",
+                 "name" : "rightStick/x",
                  "format" : "SHRT",
                  "offset" : 8
              },
