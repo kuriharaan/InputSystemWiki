@@ -32,7 +32,7 @@ Can use a path to get all devices using the "gamepad" template (or any template 
     InputSystem.GetControls("/<gamepad>");
 ```
 
-Or match devices by name:
+Or match devices by name (which is a bad idea, though, because there is no guarantee that a gamepad device has "gamepad" in its name):
 
 ```C#
     InputSystem.GetControls("/gamepad*");
