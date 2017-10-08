@@ -125,9 +125,14 @@ Extend the "Gamepad" template and customize its controls.
      {
         "name" : "MyGamepad",
         "extend" : "Gamepad",
+        // If you customize the state layout, you also need to send state data
+        // in the right format. The default "GPAD" format won't fit. So, you
+        // have to specify a custom format identifier (a FourCC code) and send
+        // state events tagged with this format code.
+        "format" : "MYGP",
         "controls" : [
-             // Say you want to store the sticks as signed shorts instead of floats and
-             // Y happens to go the opposite way on your gamepad.
+             // Say you want to store the sticks as signed shorts instead of floats
+             // and Y happens to go the opposite way on your gamepad.
              {
                  "name" : "leftStick/x",
                  "format" : "SHRT",
