@@ -31,6 +31,8 @@ However, there wasn't the step *after* the prototype where you take a step back,
 >For me, this is partly what InputSystemX is about. There's a ton of learnings that flowed out of the old new
 >input system in there (along with heavy input from Tom Baird and Matt Dalby).
 
+This also contributed to tests becoming a problem as substantial amounts of code exists before testing was considered. Had the prototype been thrown away and a clean room implementation been started, considering tests an integral part from the beginning would have been easier.
+
 This leads me to the next point.
 
 ## Incorrect and/or harmful assumptions
