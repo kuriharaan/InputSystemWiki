@@ -33,8 +33,6 @@ However, there wasn't the step *after* the prototype where you take a step back,
 
 This also contributed to tests becoming a problem as substantial amounts of code exists before testing was considered. Had the prototype been thrown away and a clean room implementation been started, considering tests an integral part from the beginning would have been easier.
 
-This leads me to the next point.
-
 ## Incorrect and/or harmful assumptions
 
 Personally, based on the prototype I came away with several assumptions that turned out to be harmful.
