@@ -96,9 +96,9 @@ In certain scenarios, we have more than one set of double buffers. In the editor
 
 ### State Change Monitors
 
-Byte regions in states can be assigned "change monitors". If monitors are set up for a particular state and that state receives a state event, the system will perform MemCmps of the state-to-be-assigned to the state-currently-stored. If contents of the given memory region in the state are different, a change notification is triggered.
+Byte (or even bit) regions in states can be assigned "change monitors". If monitors are set up for a particular state and that state receives a state event, the system will perform MemCmps of the state-to-be-assigned to the state-currently-stored. If contents of the given memory region in the state are different, a change notification is triggered.
 
-This system is not publicly accessible and is specific to actions. `InputManager.AddStateChangeMonitor()` sets up a monitor and `InputAction.NotifyControlValueChanged()` receives the notifications (*after* the new state has been committed to memory using MemCpy).
+This system is not publicly accessible ATM and is specific to actions. `InputManager.AddStateChangeMonitor()` sets up a monitor and `InputAction.NotifyControlValueChanged()` receives the notifications (*after* the new state has been committed to memory using MemCpy). Opening up change monitors may make sense for users who want to build their own action system on top of the raw device layer.
 
 ## Events
 
