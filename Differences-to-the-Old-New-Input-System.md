@@ -77,3 +77,6 @@ The system has been designed with a key focus being performance. My three-paragr
 * Binding sets can be read from JSON
 * Action sets no longer generate code
 
+## Also
+
+* Comments and tests :)
