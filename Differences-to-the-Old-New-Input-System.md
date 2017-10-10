@@ -1,5 +1,13 @@
 This page highlights a number of ways in how [InputSystemX](https://github.com/Unity-Technologies/InputSystemX) differs from [InputSystem](https://github.com/Unity-Technologies/InputSystem). It also tries to highlight similarities.
 
+The system has been designed with a key focus being performance. My three-paragraph sales pitch would read like this:
+
+>It's built on a much more efficient and streamlined state system where the state of all devices collapses into a single unmanaged allocation, where all state updating is just memcpys and all state change detection (only for explicitly enabled actions) is just memcmps. It can consume state in pretty much whatever format (including raw HID input reports) with no state conversions necessary in the pipeline. All final value conditioning (like e.g. unpacking a trigger that's stored as a single byte and returning it as a normalized float) is done on-demand and only when values are actually queried by the user. The processing pipeline is fully configurable but the user only pays for processing that sits on controls actually queried by the user.
+>
+>There is no routing anymore, there are no managed C# objects for events and thus no pooling and unmarshaling. The event processing is readily jobifyable and the managed stack for event processing is a total of 2 levels deep. Native will normally send full-device state updates in single events (though it may also update partial state; it's still just memcpy, simply has an extra offset).
+>
+>The complexity of the system has significantly gone down as has the OO-yness of it. I expect to reach the point of meaningful feature parity at under 10k lines of code (old system was >16k) while at the same time reaching significantly increased levels of performance as well as flexibility.
+
 ## Events
 
 * Native and managed use the same event representation
