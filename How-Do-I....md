@@ -1,21 +1,3 @@
-# ... wait for any button to be pressed on any device?
-
-One way is to use actions.
-
-```C#
-    var myAction = new InputAction(binding: "/*/<button>");
-    myAction.onPerformed += (action, control) => Debug.Log($"Button {control.name} pressed!");
-    myAction.Enable();
-```
-
-However, this is dirt inefficient. The amount of processing an action has to do is directly correlated with the amount of controls it is targeting. Targeting every single button of every single device will yield a ton of controls and result in high processing overhead. The keyboard alone will contribute a ton of buttons each of which will have to be processed individually.
-
-A more efficient way is to just listen for any activity on any device and when there was activity, find out whether it came from a button.
-
-```C#
-    ... still being worked on; can already listen on whole devices but you won't know what control caused the state change.
-```
-
 # ... check if the space key has been pressed this frame?
 
 ```C#
@@ -44,6 +26,23 @@ Or you can just go through the list of InputDevices directly.
     InputSystem.devices.Select(x => x is Gamepad);
 ```
 
+# ... wait for any button to be pressed on any device?
+
+One way is to use actions.
+
+```C#
+    var myAction = new InputAction(binding: "/*/<button>");
+    myAction.onPerformed += (action, control) => Debug.Log($"Button {control.name} pressed!");
+    myAction.Enable();
+```
+
+However, this is dirt inefficient. The amount of processing an action has to do is directly correlated with the amount of controls it is targeting. Targeting every single button of every single device will yield a ton of controls and result in high processing overhead. The keyboard alone will contribute a ton of buttons each of which will have to be processed individually.
+
+A more efficient way is to just listen for any activity on any device and when there was activity, find out whether it came from a button.
+
+```C#
+    ... still being worked on; can already listen on whole devices but you won't know what control caused the state change.
+```
 # ... create a device?
 
 ```C#
