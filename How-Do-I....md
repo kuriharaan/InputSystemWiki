@@ -58,6 +58,8 @@ Finally, you can match devices by name (which is a bad idea, though, because the
     action.Enable();
 ```
 
+    ////TODO: working on an inspector that allows you to just have InputActions as properties on your MonoBehaviour and have them editable in the editor
+
 # ... wait for any button to be pressed on any device?
 
 One way is to use actions.
