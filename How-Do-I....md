@@ -237,3 +237,26 @@ And then make sure you put extra StateEvents for your HMD on the queue right in 
 # ... simulate HMD movement from mouse and keyboard?
 
     I'm working on a callback that allows state to be updated from state and see the change in the same frame
+
+# ... record events flowing through the system?
+
+```C#
+
+    var trace = new InputEventTrace(); // Can also give device ID to only
+                                       // trace events for a specific device.
+    
+    trace.Enable();
+
+    //... run stuff
+
+    var current = new InputEventPtr();
+    while (trace.GetNextEvent(ref current))
+    {
+        Debug.Log("Got some event: " + current);
+    }
+
+    // Also supports IEnumerable.
+    foreach (var eventPtr in trace)
+        Debug.Log("Got some event: " + eventPtr);
+
+```
