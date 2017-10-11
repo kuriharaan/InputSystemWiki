@@ -22,6 +22,8 @@ In addition to wildcards, controls can be matched by usage (`/gamepad/{primaryAc
 
 Matching is case-insensitive.
 
+    ////REVIEW: the path syntax seems more elaborate than it needs to be
+
 ### Usages
 
 Every control may have one or more usages associated with it. Usages give meaning to a control. For example, there's a "Back" usage which is associated with the "Escape" key on a keyboard and with the "B" button on a gamepad. The following code checks wether a button with the "Back" usage was pressed to close a UI. This code will work with both gamepads and keyboards (and any other template making use of the "Back" usage).
