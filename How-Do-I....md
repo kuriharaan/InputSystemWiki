@@ -8,23 +8,25 @@
 
 Multiple ways.
 
-Can use a path to get all devices using the "gamepad" template (or any template based on the gamepad template):
+You can just go through the list of InputDevices directly.
+
+```C#
+    InputSystem.devices.Select(x => x is Gamepad);
+```
+
+Or you can use a path to get all devices using the "gamepad" template (or any template based on the gamepad template):
 
 ```C#
     InputSystem.GetControls("/<gamepad>");
 ```
 
-Or match devices by name (which is a bad idea, though, because there is no guarantee that a gamepad device has "gamepad" in its name):
+Finally, you can match devices by name (which is a bad idea, though, because there is no guarantee that a gamepad device has "gamepad" in its name):
 
 ```C#
     InputSystem.GetControls("/gamepad*");
 ```
 
-Or you can just go through the list of InputDevices directly.
-
-```C#
-    InputSystem.devices.Select(x => x is Gamepad);
-```
+////TODO: in addition to `Gamepad.current` I want to have a `Gamepad.all` accessor
 
 # ... wait for any button to be pressed on any device?
 
