@@ -312,3 +312,9 @@ And then make sure you put extra StateEvents for your HMD on the queue right in 
         };
 
 ```
+
+# ... see what devices I have and what state they are in?
+
+Go to `Windows >> Input Debugger`.
+
+    ////TODO: working on having device setups from players mirrored 1:1 into the running input system in the editor (including having their input available in the editor)
