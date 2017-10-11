@@ -259,4 +259,21 @@ And then make sure you put extra StateEvents for your HMD on the queue right in 
     foreach (var eventPtr in trace)
         Debug.Log("Got some event: " + eventPtr);
 
+    // Trace consumes unmanaged resources. Make sure to dispose.
+    trace.Dispose();
+
+```
+
+# ... see events as they are processed?
+
+```C#
+
+    InputSystem.onEvent +=
+        eventPtr =>
+        {
+            // Can handle events yourself, for example, and then stop them
+            // from further processing by marking them as handled.
+            eventPtr.handled = true;
+        };
+
 ```
