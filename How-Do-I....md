@@ -165,7 +165,7 @@ Extend the "Gamepad" template and customize its controls.
 
 The same principle applies if on your device some buttons are swapped, for example. Simply remap their offsets.
 
-# ... have my own template used when the native backend discovers a specific type?
+# ... have my own template used when the native backend discovers a specific device?
 
 Simply describe the device in the template.
 
