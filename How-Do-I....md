@@ -31,7 +31,7 @@ Finally, you can match devices by name (which is a bad idea, though, because the
 # ... know when a new device has been plugged in?
 
 ```C#
-    InputSystem.onDeviceChange =
+    InputSystem.onDeviceChange +=
         (device, change) =>
         {
             if (change == InputDeviceChange.Added)
@@ -43,6 +43,19 @@ Finally, you can match devices by name (which is a bad idea, though, because the
             else if (change == InputDeviceChange.Removed)
                 /* Remove from input system entirely; by default, devices stay in the system once discovered */;
         }
+```
+
+# ... create a simple fire-type action?
+
+```C#
+    // Create action that binds to the primary action control on all devices.
+    var action = new InputAction(binding: "*/{primaryAction}");
+
+    // Have it run your code when action is triggered.
+    action.performed += (action, control) => Fire();
+
+    // Start listening for control changes.
+    action.Enable();
 ```
 
 # ... wait for any button to be pressed on any device?
