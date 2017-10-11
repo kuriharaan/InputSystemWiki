@@ -127,6 +127,8 @@ The "active" part of the system requires explicit setup by the user and incurs p
 
 Actions are an optional feature. A user can stick entirely to the passive part of the system and work with devices and controls only.
 
+    ////TODO: Actions still need the most fleshing out ATM. What's there so far is the ability to flexibly target controls and run code when controls change value. We need more than that.
+
 ## Actions
 
 An action monitors for state change and invokes user code in response to them.
