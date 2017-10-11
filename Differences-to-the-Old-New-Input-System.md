@@ -13,6 +13,7 @@ The system has been designed with a key focus being performance. My three-paragr
 * Native and managed use the same event representation
 * The structure of native events is still the same
 * Events still come in as a chunk of raw memory passed on directly from native
+* The event stream can still be listened to and the InputEventPtr wrapper shields from most low-level details but close-up work with events requires unsafe code now
 * There is only one event queue and it sits in native
 * There are no C# event objects anymore
 * There is no routing of events; InputManager processes events in a (more or less) tight loop (jobifyable)
