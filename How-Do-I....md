@@ -28,6 +28,23 @@ Finally, you can match devices by name (which is a bad idea, though, because the
 
 ////TODO: in addition to `Gamepad.current` I want to have a `Gamepad.all` accessor
 
+# ... know when a new device has been plugged in?
+
+```C#
+    InputSystem.onDeviceChange =
+        (device, change) =>
+        {
+            if (change == InputDeviceChange.Added)
+                /* New Device */;
+            else if (change == InputDeviceChange.Disconnected)
+                /* Device got unplugged */;
+            else if (change == InputDeviceChange.Connected)
+                /* Plugged back in */;
+            else if (change == InputDeviceChange.Removed)
+                /* Remove from input system entirely; by default, devices stay in the system once discovered */;
+        }
+```
+
 # ... wait for any button to be pressed on any device?
 
 One way is to use actions.
