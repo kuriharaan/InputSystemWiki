@@ -86,8 +86,10 @@ Note that you still need to enable the action in code and hook up your response.
 
     void Awake()
     {
-        fireAction.performed => Fire;
-        walkAction.performed => Walk;
+        ////REVIEW: delegates are prone to causing GC; probably makes sense to have an alternative mechanism
+        ////        that doesn't rely on delegates
+        fireAction.performed += (a, c) => Fire;
+        walkAction.performed += (a, c) => Walk;
     }
 
     void OnEnable()
