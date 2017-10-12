@@ -134,6 +134,7 @@ To display UI feedback when the button starts being held, use the `started` call
 
     action.started += (a, c) => ShowGunChargeUI();
     action.performed += (a, c) => FinishGunChargingAndHideChargeUI();
+    action.cancelled += (a, c) => HideChargeUI();
 
 ```
 
