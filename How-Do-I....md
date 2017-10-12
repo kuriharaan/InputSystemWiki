@@ -245,7 +245,7 @@ To create an instance of your device, register it as a template and then instant
 
 ////TODO: need a way to give devices an opportunity to feed events; ATM you have to make that happen yourself and events will only go in the next update this way
 
-# ... choose a different state layout for my gamepad?
+# ... deal with my gamepad data arriving in a format different from `GamepadState`?
 
 Extend the "Gamepad" template and customize its controls.
 
