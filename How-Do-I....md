@@ -125,6 +125,15 @@ Put a HoldModifier on the action. In code, this works like so:
 
 ```
 
+To display UI feedback when the button starts being held, use the `started` callback.
+
+```C#
+
+    action.started += (a, c) => ShowGunChargeUI();
+    action.performed += (a, c) => FinishGunChargingAndHideChargeUI();
+
+```
+
     ////TODO: still working on the modifier mechanics
 
 # ... wait for any button to be pressed on any device?
