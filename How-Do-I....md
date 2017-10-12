@@ -4,6 +4,12 @@
     Keyboard.current.space.wasPressedThisFrame
 ```
 
+Same kinda deal works for other devices.
+
+```C#
+    Gamepad.current.aButton.wasPressedThisFrame
+```
+
 # ... find all connected gamepads?
 
 Multiple ways.
