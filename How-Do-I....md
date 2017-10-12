@@ -145,7 +145,8 @@ To display UI feedback when the button starts being held, use the `started` call
 ```C#
 
     var action = new InputAction();
-    action.AddBinding("/<gamepad>/leftTrigger").And("/<gamepad>/buttonSouth", modifiers: "hold(duration=0.4)");
+    action.AddBinding("/<gamepad>/leftTrigger")
+        .And("/<gamepad>/buttonSouth", modifiers: "hold(duration=0.4)");
 
 ```
 
