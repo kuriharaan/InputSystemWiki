@@ -115,6 +115,18 @@ Note that you still need to enable the action in code and hook up your response.
 
     ////TODO: I'm also working on a way to nicely package up actions in action sets
 
+# ... require a button to be held for 0.4 seconds before triggering an action?
+
+Put a HoldModifier on the action. In code, this works like so:
+
+```C#
+
+    var action = new InputAction(binding: "*/{PrimaryAction}", modifiers: "hold(duration=0.4)");
+
+```
+
+    ////TODO: still working on the modifier mechanics
+
 # ... wait for any button to be pressed on any device?
 
 One way is to use actions.
