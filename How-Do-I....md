@@ -162,7 +162,8 @@ Put a HoldModifier on the action. In code, this works like so:
 
 ```C#
 
-    var action = new InputAction(binding: "*/{PrimaryAction}", modifiers: "hold(duration=0.4)");
+    var action = new InputAction(binding: "*/{PrimaryAction}",
+        modifiers: "hold(duration=0.4)");
 
 ```
 
