@@ -86,8 +86,6 @@ Note that you still need to enable the action in code and hook up your response.
 
     void Awake()
     {
-        ////REVIEW: delegates are prone to causing GC; probably makes sense to have an alternative mechanism
-        ////        that doesn't rely on delegates
         fireAction.performed += (a, c) => Fire;
         walkAction.performed += (a, c) => Walk;
     }
@@ -119,6 +117,44 @@ Note that you still need to enable the action in code and hook up your response.
     ////TODO: the second way I'm still working on ATM (the editors and stuff)
 
     ////TODO: I'm also working on a way to nicely package up actions in action sets
+
+If you are worried about GC from the delegates, you can also use a polling approach rather than a callback-driven approach.
+
+```C#
+
+    void OnEnable()
+    {
+        fireAction.Enable();
+        walkAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        fireAction.Disable();
+        walkAction.Disable();
+    }
+
+    void Update()
+    {
+        if (fireAction.hasBeenPerformed)
+            Fire();
+        if (walkAction.hasBeenPerformed)
+            Walk();
+    }
+
+    void Fire()
+    {
+        //...
+    }
+
+    void Walk(InputAction action, InputControl control)
+    {
+        //...
+    }
+
+```
+
+    ////TODO: that last way I'm still working on
 
 # ... require a button to be held for 0.4 seconds before triggering an action?
 
