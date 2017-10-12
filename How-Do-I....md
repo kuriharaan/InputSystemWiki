@@ -140,6 +140,17 @@ To display UI feedback when the button starts being held, use the `started` call
 
     ////TODO: still working on the modifier mechanics
 
+# ... require the left trigger to be held and then the A button to be pressed and held for 0.4 seconds?
+
+```C#
+
+    var action = new InputAction();
+    action.AddBinding("/<gamepad>/leftTrigger").And("/<gamepad>/buttonSouth", modifiers: "hold(duration=0.4)");
+
+```
+
+Again, setting this up with the inspector in the editor is an alternative to dealing with the path strings directly.
+
 # ... separate the actions in my game from user-overridable bindings?
 
 Put your actions in one JSON file and put your default bindings in another JSON file. At runtime, load the actions and then load either the default bindings or a customized version from the user's profile.
