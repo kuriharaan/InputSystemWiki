@@ -82,9 +82,6 @@ Note that you still need to enable the action in code and hook up your response.
     {
         fireAction.performed => Fire;
         walkAction.performed => Walk;
-
-        fireAction.Enable();
-        walkAction.Enable();
     }
 
     void OnEnable()
