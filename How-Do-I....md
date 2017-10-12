@@ -12,8 +12,6 @@ Same kinda deal works for other devices.
 
 # ... find all connected gamepads?
 
-Multiple ways.
-
 You can ask `Gamepad`.
 
 ```C#
