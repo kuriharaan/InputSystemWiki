@@ -133,6 +133,16 @@ To display UI feedback when the button starts being held, use the `started` call
 
     ////TODO: still working on the modifier mechanics
 
+# ... separate the actions in my game from user-overridable bindings?
+
+Put your actions in one JSON file and put your default bindings in another JSON file. At runtime, load the actions and then load either the default bindings or a customized version from the user's profile.
+
+```C#
+
+    ////TODO: still fleshing out the APIs for this
+
+```
+
 # ... wait for any button to be pressed on any device?
 
 One way is to use actions.
