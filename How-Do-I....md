@@ -20,22 +20,20 @@ You can ask `Gamepad`.
     var allGamepads = Gamepad.all;
 ```
 
-Or you can go through the list of InputDevices directly.
+Or you have some more involved options:
 
 ```C#
+
+    // Go through all devices and select gamepads.
     InputSystem.devices.Select(x => x is Gamepad);
-```
 
-Or you can use a path to get all devices using the "gamepad" template (or any template based on the gamepad template):
-
-```C#
+    // Query everything that is using the gamepad template or based on that template.
     InputSystem.GetControls("/<gamepad>");
-```
 
-Finally, you can match devices by name (which is a bad idea, though, because there is no guarantee that a gamepad device has "gamepad" in its name):
-
-```C#
+    // Fetch all devices with "gamepad" in their names (not a good idea; no guarantee
+    // a gamepad is actually named that way).
     InputSystem.GetControls("/gamepad*");
+
 ```
 
 # ... know when a new device has been plugged in?
