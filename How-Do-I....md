@@ -260,46 +260,41 @@ To create an instance of your device, register it as a template and then instant
 
 Extend the "Gamepad" template and customize its controls.
 
-```
-     {
-        "name" : "MyGamepad",
-        "extend" : "Gamepad",
-        // If you customize the state layout, you also need to send state data
-        // in the right format. The default "GPAD" format won't fit. So, you
-        // have to specify a custom format identifier (a FourCC code) and send
-        // state events tagged with this format code.
-        "format" : "MYGP",
-        "controls" : [
-             // Say you want to store the sticks as signed shorts instead of floats
-             // and Y happens to go the opposite way on your gamepad.
-             {
-                 "name" : "leftStick/x",
-                 "format" : "SHRT",
-                 "offset" : 4,
-                 "parameters" : "normalize,normalizeMin=-0.5,normalizeMax=0.5"
-             },
-             {
-                 "name" : "leftStick/y",
-                 "format" : "SHRT",
-                 "offset" : 6,
-                 "parameters" = "invert,normalize,normalizeMin=-0.5,normalizeMax=0.5"
-             },
-             {
-                 "name" : "rightStick/x",
-                 "format" : "SHRT",
-                 "offset" : 8,
-                 "parameters" : "normalize,normalizeMin=-0.5,normalizeMax=0.5"
-             },
-             {
-                 "name" : "rightStick/y",
-                 "format" : "SHRT",
-                 "offset" : 10,
-                 "parameters" = "invert,normalize,normalizeMin=-0.5,normalizeMax=0.5"
-             }
-             // You can also freely add new controls or change the templates on existing
-             // controls and so on and on.
-        ]
-    }
+A real-world example of this is the Xbox Controller on OSX which is supported through HID. Its template looks like this:
+
+```JSON
+{
+    "name" : "XboxGamepadOSX",
+    "extend" : "Gamepad",
+    "format" : "HID",
+    "device" : { "interface" : "HID", "product" : "Xbox.*Controller" },
+    "controls" : [
+        { "name" : "leftShoulder", "offset" : 2, "bit" : 8 },
+        { "name" : "rightShoulder", "offset" : 2, "bit" : 9 },
+        { "name" : "leftStickPress", "offset" : 2, "bit" : 14 },
+        { "name" : "rightStickPress", "offset" : 2, "bit" : 15 },
+        { "name" : "buttonSouth", "offset" : 2, "bit" : 12 },
+        { "name" : "buttonEast", "offset" : 2, "bit" : 13 },
+        { "name" : "buttonWest", "offset" : 2, "bit" : 14 },
+        { "name" : "buttonNorth", "offset" : 2, "bit" : 15 },
+        { "name" : "dpad", "offset" : 2 },
+        { "name" : "dpad/up", "offset" : 0, "bit" : 8 },
+        { "name" : "dpad/down", "offset" : 0, "bit" : 9 },
+        { "name" : "dpad/left", "offset" : 0, "bit" : 10 },
+        { "name" : "dpad/right", "offset" : 0, "bit" : 11 },
+        { "name" : "start", "offset" : 2, "bit" : 4 },
+        { "name" : "select", "offset" : 2, "bit" : 5 },
+        { "name" : "xbox", "offset" : 2, "bit" : 2, "template" : "Button" },
+        { "name" : "leftTrigger", "offset" : 4, "format" : "BYTE" },
+        { "name" : "rightTrigger", "offset" : 5, "format" : "BYTE" },
+        { "name" : "leftStick", "offset" : 6, "format" : "VC2S" },
+        { "name" : "leftStick/x", "offset" : 0, "format" : "SHRT", "parameters" : "normalize,normalizeMin=-0.5,normalizeMax=0.5" },
+        { "name" : "leftStick/y", "offset" : 2, "format" : "SHRT", "parameters" : "invert,normalize,normalizeMin=-0.5,normalizeMax=0.5" },
+        { "name" : "rightStick", "offset" : 10, "format" : "VC2S" },
+        { "name" : "rightStick/x", "offset" : 0, "format" : "SHRT", "parameters" : "normalize,normalizeMin=-0.5,normalizeMax=0.5" },
+        { "name" : "rightStick/y", "offset" : 2, "format" : "SHRT", "parameters" : "invert,normalize,normalizeMin=-0.5,normalizeMax=0.5" }
+    ]
+}
 ```
 
 The same principle applies if on your device some buttons are swapped, for example. Simply remap their offsets.
