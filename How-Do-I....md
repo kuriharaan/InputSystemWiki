@@ -155,6 +155,11 @@ Again, setting this up with the inspector in the editor is an alternative to dea
 # ... use a "positive" and a "negative" key to drive an axis?
 
     ////TODO: working on this
+    ////      ATM you can do this at the control level by, for example, customizing
+    ////      the Keyboard template to add a custom AxisControl that reads its state
+    ////      from two buttons.
+    ////      Figuring out how this could be done more easily on the fly and at the
+    ////      action level. Do we really need it though?
 
 # ... separate the actions in my game from user-overridable bindings?
 
