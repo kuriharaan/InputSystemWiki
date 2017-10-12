@@ -177,6 +177,18 @@ A more efficient way is to just listen for any activity on any device and when t
 
 The given string is a template name.
 
+An alternative way is to tell about the availability of a device and let the system create a device from a matching template -- or not, if there is none (though if you later add one, the device will be created then).
+
+```C#
+    InputSystem.ReportAvailableDevice(
+        new InputDeviceDescription
+        {
+            product = "AwesomeGadget",
+            manufacturer = "Awesome Products Inc."
+        }
+    );
+```
+
 # ... create my own custom devices?
 
 Two possible ways. If you are okay with using one of the existing C# InputDevice classes in code to interface with your device, you can just build on an existing template using JSON.
