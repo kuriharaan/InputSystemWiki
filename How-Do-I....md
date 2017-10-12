@@ -8,7 +8,13 @@
 
 Multiple ways.
 
-You can just go through the list of InputDevices directly.
+You can ask `Gamepad`.
+
+```C#
+    var allGamepads = Gamepad.all;
+```
+
+Or you can go through the list of InputDevices directly.
 
 ```C#
     InputSystem.devices.Select(x => x is Gamepad);
@@ -25,8 +31,6 @@ Finally, you can match devices by name (which is a bad idea, though, because the
 ```C#
     InputSystem.GetControls("/gamepad*");
 ```
-
-////TODO: in addition to `Gamepad.current` I want to have a `Gamepad.all` accessor
 
 # ... know when a new device has been plugged in?
 
