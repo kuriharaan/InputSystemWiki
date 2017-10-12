@@ -47,6 +47,8 @@ Finally, you can match devices by name (which is a bad idea, though, because the
 
 # ... create a simple fire-type action?
 
+One way to do so is directly in code:
+
 ```C#
     // Create action that binds to the primary action control on all devices.
     var action = new InputAction(binding: "*/{primaryAction}");
@@ -58,7 +60,60 @@ Finally, you can match devices by name (which is a bad idea, though, because the
     action.Enable();
 ```
 
-    ////TODO: working on an inspector that allows you to just have InputActions as properties on your MonoBehaviour and have them editable in the editor
+The second way is to simply have a serialized field of type InputAction in your MonoBehaviour like this:
+
+```C#
+
+public class MyControllerComponent : MonoBehaviour
+{
+    public InputAction fireAction;
+    public InputAction walkAction;
+}
+
+```
+
+In the editor, you will be presented with a nice inspector that allows you to add bindings to the actions and choose where the bindings go without having to fiddle around with path strings.
+
+Note that you still need to enable the action in code and hook up your response. You can do so in the Awake() method of your component.
+
+```C#
+
+    void Awake()
+    {
+        fireAction.performed => Fire;
+        walkAction.performed => Walk;
+
+        fireAction.Enable();
+        walkAction.Enable();
+    }
+
+    void OnEnable()
+    {
+        fireAction.Enable();
+        walkAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        fireAction.Disable();
+        walkAction.Disable();
+    }
+
+    void Fire(InputAction action, InputControl control)
+    {
+        //...
+    }
+
+    void Walk(InputAction action, InputControl control)
+    {
+        //...
+    }
+
+```
+
+    ////TODO: the second way I'm still working on ATM (the editors and stuff)
+
+    ////TODO: I'm also working on a way to nicely package up actions in action sets
 
 # ... wait for any button to be pressed on any device?
 
