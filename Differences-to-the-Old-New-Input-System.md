@@ -41,6 +41,7 @@ The system has been designed with a key focus being performance. My three-paragr
 
 * Double buffering (previous and current) is handled centrally instead of per-control
 * State memory is always linear; a device maps to a single contiguous block of memory
+* Default values *have* to be all zeros; custom defaults are not supported
 
 ## Devices
 
