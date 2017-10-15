@@ -136,9 +136,9 @@ If you are worried about GC from the delegates, you can also use a polling appro
 
     void Update()
     {
-        if (fireAction.hasBeenPerformed)
+        if (fireAction.hasBeenPerformedThisFrame)
             Fire();
-        if (walkAction.hasBeenPerformed)
+        if (walkAction.hasBeenPerformedThisFrame)
             Walk();
     }
 
