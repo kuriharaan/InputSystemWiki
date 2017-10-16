@@ -210,6 +210,16 @@ Put your actions in one JSON file and put your default bindings in another JSON 
 
 ```
 
+# ... set up an action to specifically target the left-hand XRController?
+
+```C#
+
+    var action = new InputAction(binding: "/<XRController>{leftHand}/position");
+
+```
+
+Again, the inspector allows setting this up without having to deal with paths directly.
+
 # ... wait for any button to be pressed on any device?
 
     ////TODO: this needs work
