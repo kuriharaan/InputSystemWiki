@@ -244,7 +244,7 @@ A more efficient way is to just listen for any activity on any device and when t
 
 ```C#
 
-    var gamepad = Gamepad.current; // Whatever gamepad you are using.
+    var gamepad = Gamepad.current; // Or whatever gamepad you are using.
     InputSystem.SetTemplateVariant(gamepad, "Lefty");
 
 ```
