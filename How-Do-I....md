@@ -245,11 +245,19 @@ A more efficient way is to just listen for any activity on any device and when t
 ```C#
 
     var gamepad = Gamepad.current; // Whatever gamepad you are using.
-    InputSystem.SwitchTemplate(gamepad, "Gamepad", "LeftyGamepad");
+    InputSystem.SetTemplateVariant(gamepad, "Lefty");
 
 ```
 
 This will swap the sticks, the triggers, and the shoulder buttons.
+
+The same concept applies for distinguishing left and right hand XR controllers, for example.
+
+```C#
+    // Turn left-hand controller into right-hand controller.
+    var controller = XRController.leftHand;
+    InputSystem.SetTemplateVariant(controller, "RightHand");
+```
 
 # ... create a device?
 
