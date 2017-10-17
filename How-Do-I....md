@@ -60,7 +60,7 @@ One way to do so is directly in code:
     var action = new InputAction(binding: "*/{primaryAction}");
 
     // Have it run your code when action is triggered.
-    action.performed += (action, control) => Fire();
+    action.performed += _ => Fire();
 
     // Start listening for control changes.
     action.Enable();
@@ -86,8 +86,8 @@ Note that you still need to enable the action in code and hook up your response.
 
     void Awake()
     {
-        fireAction.performed += (a, c) => Fire;
-        walkAction.performed += (a, c) => Walk;
+        fireAction.performed += _ => Fire;
+        walkAction.performed += _ => Walk;
     }
 
     void OnEnable()
@@ -171,9 +171,9 @@ To display UI feedback when the button starts being held, use the `started` call
 
 ```C#
 
-    action.started += (a, c) => ShowGunChargeUI();
-    action.performed += (a, c) => FinishGunChargingAndHideChargeUI();
-    action.cancelled += (a, c) => HideChargeUI();
+    action.started += _ => ShowGunChargeUI();
+    action.performed += _ => FinishGunChargingAndHideChargeUI();
+    action.cancelled += _ => HideChargeUI();
 
 ```
 
