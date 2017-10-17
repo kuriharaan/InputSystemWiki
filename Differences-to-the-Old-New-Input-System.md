@@ -72,6 +72,7 @@ The system has been designed with a key focus being performance. My three-paragr
 * This also means that actions can now detect changes happening in the same frame
 * Actions solely work through callbacks now (onStarted, onPerformed, onCancelled)
 * Actions monitor for state value changes in bulk rather than on a per-action basis
+* Actions can perform holds, taps, swipes, and so on
 * Bindings are a simple structs now containing a simple action name -> source path mapping
 * Actions can be grouped in named sets
 * Action sets can be read from JSON
