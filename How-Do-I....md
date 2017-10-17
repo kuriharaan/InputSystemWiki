@@ -239,6 +239,18 @@ A more efficient way is to just listen for any activity on any device and when t
 ```C#
     ... still being worked on; can already listen on whole devices but you won't know what control caused the state change.
 ```
+
+# .. switch to a lefty gamepad?
+
+```C#
+
+    var gamepad = Gamepad.current; // Whatever gamepad you are using.
+    InputSystem.SwitchTemplate(gamepad, "Gamepad", "LeftyGamepad");
+
+```
+
+This will swap the sticks, the triggers, and the shoulder buttons.
+
 # ... create a device?
 
 ```C#
