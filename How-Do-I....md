@@ -251,7 +251,7 @@ A more efficient way is to just listen for any activity on any device and when t
 
 This will swap the sticks, the triggers, and the shoulder buttons.
 
-The same concept applies for distinguishing left and right hand XR controllers, for example.
+The same concept applies for distinguishing left and right hand XR controllers, for example -- though in this case, the main change is the usage applied to the device as a whole rather than a change in the specifics of the control setup.
 
 ```C#
     // Turn left-hand controller into right-hand controller.
