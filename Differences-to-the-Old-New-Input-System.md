@@ -75,9 +75,9 @@ The system has been designed with a key focus being performance. My three-paragr
 * Actions can perform holds, taps, swipes, and so on
 * Bindings are a simple structs now containing a simple action name -> source path mapping
 * Actions can be grouped in named sets
-* Action sets can be read from JSON
+* Action sets can be read from and written to JSON
 * Bindings can get grouped in named sets
-* Binding sets can be read from JSON
+* Binding sets can be read from and written to JSON
 * Action sets no longer generate code
 
 ## Also
