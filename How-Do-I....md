@@ -413,6 +413,10 @@ Simply describe the device in the template.
 
 Note that you don't have to restart Unity in order for changes in your template to take affect on native devices. On every domain reload, changes will automatically be applied so you can just keep refining a template and your device will get recreated with the most up-to-date version.
 
+# ... deal with my device being both a keyboard and a mouse?
+
+    ////TODO: working on allowing templates to create more than one device which can share state
+
 # ... add deadzoning to my gamepad sticks?
 
 Simply put a deadzone processor on the sticks.
