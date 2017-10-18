@@ -245,7 +245,7 @@ A more efficient way is to just listen for any activity on any device and when t
 ```C#
 
     var gamepad = Gamepad.current; // Or whatever gamepad you are using.
-    InputSystem.SetTemplateVariant(gamepad, "Lefty");
+    InputSystem.SetVariant(gamepad, "Lefty");
 
 ```
 
@@ -256,7 +256,7 @@ The same concept applies for distinguishing left and right hand XR controllers, 
 ```C#
     // Turn left-hand controller into right-hand controller.
     var controller = XRController.leftHand;
-    InputSystem.SetTemplateVariant(controller, "RightHand");
+    InputSystem.SetVariant(controller, "RightHand");
 ```
 
 # ... create a device?
