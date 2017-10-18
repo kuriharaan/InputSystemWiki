@@ -208,6 +208,10 @@ Put your actions in one JSON file and put your default bindings in another JSON 
 
 ```
 
+# ... create a UI to rebind input in my game?
+
+    ////TODO
+
 # ... set up an action to specifically target the left-hand XRController?
 
 ```C#
