@@ -257,6 +257,10 @@ The same concept applies for distinguishing left and right hand XR controllers, 
     InputSystem.SetVariant(controller, "RightHand");
 ```
 
+# ... get all current touches from the touchscreen?
+
+    ////TODO
+
 # ... create a device?
 
 ```C#
