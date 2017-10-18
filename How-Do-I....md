@@ -114,9 +114,7 @@ Note that you still need to enable the action in code and hook up your response.
 
 ```
 
-    ////TODO: the second way I'm still working on ATM (the editors and stuff)
-
-    ////TODO: I'm also working on a way to nicely package up actions in action sets
+    ////TODO: Working on a way to nicely package up actions in action sets
 
 If you are worried about GC from the delegates, you can also use a polling approach rather than a callback-driven approach.
 
