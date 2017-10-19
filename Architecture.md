@@ -26,18 +26,7 @@ Matching is case-insensitive.
 
 ### Usages
 
-Every control may have one or more usages associated with it. Usages give meaning to a control. For example, there's a "Back" usage which is associated with the "Escape" key on a keyboard and with the "B" button on a gamepad. The following code checks wether a button with the "Back" usage was pressed to close a UI. This code will work with both gamepads and keyboards (and any other template making use of the "Back" usage).
-
-```C#
-    if (InputSystem.GetControls<Button>("/*/<Back>").Any(x => x.wasPressedThisFrame))
-        CloseMyUI();
-
-    // But... *MUCH* more efficient to use actions. No repeated lookups by strings and much
-    // more efficient state monitoring.
-    var action = new InputAction(binding: "/*/<back");
-    action.onPerformed += (a, c) => CloseMyUI();
-    action.Enable();
-```
+Every control may have one or more usages associated with it. Usages give meaning to a control. For example, there's a "Back" usage which is associated with the "Escape" key on a keyboard and with the "B" button on a gamepad.
 
 ### Processors
 
