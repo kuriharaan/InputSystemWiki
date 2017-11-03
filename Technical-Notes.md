@@ -13,7 +13,7 @@ This page is for collecting notes on specific technical issues.
 
 Polling has two big advantages:
 
-* Storing up all the state in actions relevant to when a control was triggered (when was it triggered? which control triggered it?) gets complicated quickly and is prone to storing state that is never needed. The callback-based approach can lazily fetch information from the callback context when needed and can thus cheaply add all kinds of context-dependent information.
+* Storing up all the state in actions relevant to when a control was triggered (when was it triggered? which control triggered it? which modifier was involved? etc.) gets complicated quickly and is prone to storing state that is never needed. The callback-based approach can lazily fetch information from the callback context when needed and can thus cheaply add all kinds of context-dependent information.
 * Actions are able to observe and perform based on every single state change in the system -- even if those state changes fall into the same frame. A polling-based API will only be able to observe the very latest state change.
 
 However, polling has one huge drawback:
