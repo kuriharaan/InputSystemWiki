@@ -11,16 +11,20 @@ This page is for collecting notes on specific technical issues.
     fireAction.performed += ctx => Fire();
 ```
 
-Polling has two big advantages:
+Polling has two big drawbacks:
 
 * Storing up all the state in actions relevant to when a control was triggered (when was it triggered? which control triggered it? which modifier was involved? etc.) gets complicated quickly and is prone to storing state that is never needed. The callback-based approach can lazily fetch information from the callback context when needed and can thus cheaply add all kinds of context-dependent information.
 * Actions are able to observe and perform based on every single state change in the system -- even if those state changes fall into the same frame. A polling-based API will only be able to observe the very latest state change.
 
-However, polling has one huge drawback:
+However, polling has one huge advantage:
 
 * It gives a natural sync point to allow the system to work asynchronously. I.e. if the user has to do `.wasPressed` we know that this is exactly the point by which we have to have the current input system update C# job completing. With callbacks, the question of when to sync becomes much harder. In the synchronous version, callbacks fire immediately. Moving it to async will unavoidably delay calls but then the questions becomes "to when?"
 
-Also, callbacks are harder to manage for users than polling. You have to unregister and they are prone to keeping objects alive that really should have been killed. Overall, they require more advanced programming than a polling-based approach.
+Also, callbacks are harder to manage for users than polling. You have to unregister and they are prone to keeping objects alive that really should have been killed. Overall, they require more advanced programming than a polling-based approach. And not only that, they also give no control to the user over when processing happens.
+
+## Solution
+
+There is a third alternative: event-based delivery. So, it seems that the ideal solution is an API that has a simple polling-based front-end and then in addition has a front-end that is event-based and delivers all activity on an action but at a point where the user deems it right to do so. This also brings back a natural sync point for job activity.
 
 # Delta Controls
 
