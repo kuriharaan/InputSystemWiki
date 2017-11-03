@@ -3,11 +3,12 @@ This page is for collecting notes on specific technical issues.
 # Action Polling vs Callbacks
 
 ```C#
-    myAction.wasPerformed
+    if (fireAction.wasPerformed)
+        Fire();
 
     // vs.
 
-    myAction.performed += ctx => ...;
+    fireAction.performed += ctx => Fire();
 ```
 
 Polling has two big advantages:
@@ -18,6 +19,8 @@ Polling has two big advantages:
 However, polling has one huge drawback:
 
 * It gives a natural sync point to allow the system to work asynchronously. I.e. if the user has to do `.wasPressed` we know that this is exactly the point by which we have to have the current input system update C# job completing. With callbacks, the question of when to sync becomes much harder. In the synchronous version, callbacks fire immediately. Moving it to async will unavoidably delay calls but then the questions becomes "to when?"
+
+Also, callbacks are harder to manage for users than polling. You have to unregister and they are prone to keeping objects alive that really should have been killed. Overall, they require more advanced programming than a polling-based approach.
 
 # Delta Controls
 
