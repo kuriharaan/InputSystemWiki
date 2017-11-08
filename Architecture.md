@@ -114,6 +114,12 @@ For high-frequency value changes where it may be important to send every single 
 
 There is no class representation of events. The user can listen to the event stream but will get an [InputEventPtr](https://github.com/Unity-Technologies/InputSystemX/blob/master/Assets/InputSystem/Events/InputEventPtr.cs) that require unsafe code in order to work with the data. For the most part, the event stream is *not* meant for consumption at a user level. It is expected that users dealing with events directly will mostly be those authoring new device backends.
 
+## Output
+
+Output/haptics is implemented through state events that are sent in the opposite direction. Output controls use the same state layout and allocation logic that other controls use.
+
+For a device to be able to receive output, it has to provide a buffer into which the system will write output state events as they appear.
+
 # Active
 
 The "active" part of the system requires explicit setup by the user and incurs processing overhead proportional to the amount of enabled functionality. Unlike the "passive" part, it is concerned with state *change* rather than with state itself.
