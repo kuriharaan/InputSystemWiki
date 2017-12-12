@@ -1,13 +1,13 @@
 # ... check if the space key has been pressed this frame?
 
 ```C#
-    Keyboard.current.space.wasPressedThisFrame
+    Keyboard.current.space.wasJustPressed
 ```
 
 Same kinda deal works for other devices.
 
 ```C#
-    Gamepad.current.aButton.wasPressedThisFrame
+    Gamepad.current.aButton.wasJustPressed
 ```
 
 # ... find all connected gamepads?
