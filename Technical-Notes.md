@@ -33,3 +33,16 @@ Delta controls (like e.g. mouse motion deltas) turn out to be unexpectedly trick
 My first thought was: let's not complicate the state system and deal with the problem in the code that generates mouse state events (i.e. the platform layer). However, this turns out to be surprisingly tricky to implement correctly. The problem is that knowing when to accumulate and when to reset is intricately tied to which mouse state events go into which input updates -- something that is hard for the OS layer to know. Simply accumulating during a frame and resetting between frames will lead to correct behavior for dynamic updates (which span an entire frame) but will not lead to correct behavior for other update types.
 
 This led me to conclude that these controls are best supported directly in the state and control system -- which is unfortunate as accumulation and resetting not only make state updates more complicated but also complicate state change detection which actions rely on.
+
+# Haptics/Output
+
+There's two principal designs allowed for by the system:
+
+1. A haptics interface on a device creates state events against output controls and queues them. When the system processes those events, they result in an IOCTL on the device.
+2. A haptics interface on a device immediately issues an IOCTL on the device.
+
+Both approaches have their pros and cons.
+
+Approach 1 has the advantage of being visible in the control system and in the event stream. This means that actions will work with output controls, too, and that remoting will work out of the box (i.e. haptic events in the player will be visible in the input debugger and it will be possible to trigger haptics remotely). However, it has the principal disadvantage of introducing a delay between a haptics interface call and an actual IOCTL being issued on the device.
+
+Approach 2 has the advantage of being immediate. Also, no extra state is kept in the system for output. Haptics won't be visible to actions but that does not seem like a big deal as monitoring output values seems of limited use (there's no way the system can guarantee an output value *actually* reflects the value on the device). Haptics not being visible in the event stream and in remoting is a bigger deal.
