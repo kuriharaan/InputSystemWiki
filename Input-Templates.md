@@ -2,7 +2,7 @@
 
 They describe the arrangement of control hierarchies and the correlation of those controls to state stored in raw memory.
 
-Example: the "Stick" template creates a hierarchy with a StickControl at the top, six AxisControls underneath (left, right, top, down, x, and y), 
+Example: the "Stick" template creates a hierarchy with a StickControl at the top, six AxisControls underneath ('left', 'right', 'top', 'down', 'x', and 'y'), and a default state of two floats with 'left', 'right' and 'x' reading from the first float and 'top', 'down', and 'y' reading from the second float.
 
 # How do I create them?
 
