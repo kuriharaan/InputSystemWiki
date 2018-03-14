@@ -1,0 +1,8 @@
+* [Home](https://github.com/Unity-Technologies/InputSystem/wiki)
+* [Architecture](https://github.com/Unity-Technologies/InputSystem/wiki/Architecture)
+  - [Input Controls](https://github.com/Unity-Technologies/InputSystem/wiki/Input-Controls)
+  - [Input Templates](https://github.com/Unity-Technologies/InputSystem/wiki/Input-Templates)
+  - [Input State](https://github.com/Unity-Technologies/InputSystem/wiki/Input-State)
+  - [Input Actions](https://github.com/Unity-Technologies/InputSystem/wiki/Input-Actions)
+* [How Do I...](https://github.com/Unity-Technologies/InputSystem/wiki/How-Do-I...)
+* [Technical Notes](https://github.com/Unity-Technologies/InputSystem/wiki/Technical-Notes)
