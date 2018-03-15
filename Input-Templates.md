@@ -35,3 +35,7 @@ For fields, the name defaults to the name of the field. ...
 ## Manual C# Construction Code
 
 # What do those various settings do?
+
+# How can I base one template on an existing template?
+
+# How do I modify the settings of an existing template?
