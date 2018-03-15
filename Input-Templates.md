@@ -20,8 +20,10 @@ Any `InputTemplate`, regardless of which way it was created, can be turned back 
 
 ## C# Reflection
 
+When registering a C# class as a template with `InputSystem.RegisterTemplate<T>`, reflection is used to automatically discovered the control setup of the given class. Two attributes -- `InputTemplateAttribute` and `InputControlAttribute` -- can be used to guide and supplement this process.
+
 ## JSON
 
 ## Manual C# Construction Code
 
-# How do they work?
+# What do those various settings do?
