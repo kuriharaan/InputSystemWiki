@@ -20,7 +20,15 @@ Any `InputTemplate`, regardless of which way it was created, can be turned back 
 
 ## C# Reflection
 
-When registering a C# class as a template with `InputSystem.RegisterTemplate<T>`, reflection is used to automatically discovered the control setup of the given class. Two attributes -- `InputTemplateAttribute` and `InputControlAttribute` -- can be used to guide and supplement this process.
+When registering a C# class as a template with `InputSystem.RegisterTemplate<T>`, reflection is used to automatically discover the control setup of the given class. Two attributes -- `InputTemplateAttribute` and `InputControlAttribute` -- can be used to guide and supplement this process.
+
+In this process the code goes looking through all properties and fields of the class (directly declared *and* inherited ones) and for each one that classifies as an `InputControl`, add information about the control to the template. Every field or property that either has a type derived from `InputControl` or has an `InputControlAttribute` applied to it classifies.
+
+Defaults for the control added to the template are taken from the property or field. All defaults can be overridden with explicit settings in `InputControlAttribute`.
+
+For properties, the name defaults to the name of the property and the type of control defaults to the `InputControl` derived type of the property. No other defaults are inferred from properties.
+
+For fields, the name defaults to the name of the field. ...
 
 ## JSON
 
