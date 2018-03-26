@@ -2,6 +2,8 @@
 
 The system breaks down into a "passive" and an "active" part.
 
+////TODO: write a one or two paragraph summary
+
 # Passive
 
 The "passive" part is concerned with capturing state using minimal per-frame processing. It is largely set up automatically but can be configured/adjusted by the user. It has a zero-setup API that will be familiar to users of Unity's existing input system.
