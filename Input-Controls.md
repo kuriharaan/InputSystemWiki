@@ -8,4 +8,10 @@ Input controls form hierarchies which can decompose values into more fine-graine
 
 # How are they created?
 
+Input controls are exclusively created by `InputControlSetup` from [templates](Input-Templates). They should not be created directly with `new`.
+
 # How are their values computed?
+
+A control does not store values directly. Instead, all input state is centrally kept by the system in unmanaged memory buffers. For a more detailed explanation of input state, see [here](Input-State).
+
+To do this, a control has to understand both the location and the format that its state is stored with in memory.

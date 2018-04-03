@@ -4,5 +4,6 @@
   - [Input Templates](https://github.com/Unity-Technologies/InputSystem/wiki/Input-Templates)
   - [Input State](https://github.com/Unity-Technologies/InputSystem/wiki/Input-State)
   - [Input Actions](https://github.com/Unity-Technologies/InputSystem/wiki/Input-Actions)
+* [Old vs New Input System](https://github.com/Unity-Technologies/InputSystem/wiki/OldVsNewInputSystem)
 * [How Do I...](https://github.com/Unity-Technologies/InputSystem/wiki/How-Do-I...)
 * [Technical Notes](https://github.com/Unity-Technologies/InputSystem/wiki/Technical-Notes)

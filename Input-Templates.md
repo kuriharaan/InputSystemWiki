@@ -1,4 +1,4 @@
->Note that for most use cases of the input system, it is not necessary to be aware of templates and of what they do. Understanding templates is necessary for authoring support for new devices but is not necessary for using already existing support of devices. When authoring new templates, understanding the [state system](Input-State.md) can be helpful.
+>Note that for most use cases of the input system, it is not necessary to be aware of templates and of what they do. Understanding templates is necessary for authoring support for new devices but is not necessary for using already existing support of devices. When authoring new templates, understanding the [state system](Input-State) can be helpful.
 
 # What do they do?
 
@@ -70,7 +70,13 @@ Names also become the default `displayName` of the control, if no display name i
 
 `aliases` provide a set of alternate names for controls.
 
+Names have to be unique within the context of the parent control. They are used to form paths (e.g. "leftStick/x").
+
 ## `displayName`
+
+Name to display for the control in UIs. If not set, defaults to `name`.
+
+## `resourceName`
 
 ## `aliases`
 
@@ -108,20 +114,25 @@ Width of the control's state in memory in bits. For example, for a button stored
 
 ## `format`
 
-State format code for the memory layout of the control. This is only relevant for controls that read their memory directly which usually is the case only with leaf controls and devices. Controls sitting in the middle of the control tree usually read their state by having child controls read theirs.
+State format code for the memory layout of the control. This is only relevant for controls that read their memory directly which usually is the case only with leaf controls and devices. Controls sitting in the middle of the control tree usually read their state by having child controls read theirs. However, there are exceptions (like `TouchControl`, for example).
 
 The format code is always a FourCC code.
 
 For devices the state format code is important as it has to correspond to the format code of incoming events. Events where the format code does not match are ignored. `////REVIEW: should we abandon this mechanism?`
 
-For leaf controls, the state format usually has to be a primitive value format.
+The following table lists the built-in state formats as well as the controls that support them. Support for arbitray formats can be added by implementing custom controls that understand the formats.
 
-|C# Type|Format Code|
-|-------|----------|
-|`byte`|`BYTE`|
-|`sbyte`|`SBYT`|
-|`short`|`SHRT`|
-|`ushort`|`USRT`|
+|C# Type|Format Code|Data|Supported by Controls|
+|-------|----------|----|--------------------|
+|n/a|`"BIT"`|Single bit|`AxisControl` (and controls derived from it, like `ButtonControl`)|
+|`byte`|`"BYTE"`|Unsigned 8-bit integer value|`AxisControl` (and controls derived from it, like `ButtonControl`)|
+|`sbyte`|`"SBYT"`|Signed 8-bit integer value|`AxisControl` (and controls derived from it, like `ButtonControl`)|
+|`short`|`"SHRT"`|Signed 16-bit integer value|`AxisControl` (and controls derived from it, like `ButtonControl`)|
+|`ushort`|`"USHT"`|Unsigned 16-bit integer value|`AxisControl` (and controls derived from it, like `ButtonControl`)|
+|`int`|`"INT"`|Signed 32-bit integer value|`AxisControl` (and controls derived from it, like `ButtonControl`), `IntegerControl`|
+|`uint`|`"UINT"`|Unsigned 32-bit integer value|`AxisControl` (and controls derived from it, like `ButtonControl`)|
+|`float`|`"FLT"`|32-bit floating-point value|`AxisControl` (and controls derived from it, like `ButtonControl`)|
+|`double`|`"DBL"`|64-bit floating-point value|
 
 ## `usages`
 
