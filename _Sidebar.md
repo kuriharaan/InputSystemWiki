@@ -1,7 +1,7 @@
 * [Home](https://github.com/Unity-Technologies/InputSystem/wiki)
 * [Architecture](https://github.com/Unity-Technologies/InputSystem/wiki/Architecture)
   - [Input Controls](https://github.com/Unity-Technologies/InputSystem/wiki/Input-Controls)
-  - [Input Templates](https://github.com/Unity-Technologies/InputSystem/wiki/Input-Templates)
+  - [Input Layouts](https://github.com/Unity-Technologies/InputSystem/wiki/Input-Layouts)
   - [Input State](https://github.com/Unity-Technologies/InputSystem/wiki/Input-State)
   - [Input Actions](https://github.com/Unity-Technologies/InputSystem/wiki/Input-Actions)
 * [Old vs New Input System](https://github.com/Unity-Technologies/InputSystem/wiki/OldVsNewInputSystem)

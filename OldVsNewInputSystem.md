@@ -299,7 +299,7 @@ As an example, let's recreate the following axis configuration:
 1. Create an input action asset by right-clicking in the project browser and selecting "Create >> Input Actions" (alternatively you can go to "Assets >> Create >> Input Actions" in the main menu bar). Give a name to the asset.
 2. Select the asset and in the inspector, click "Add New Set" to add a new set of actions.
 3. Double-click the "default" name to give the set a better name. E.g. "gameplay".
-4. Double-click "<Add Action...>" to add an action.
+4. Double-click "\<Add Action...>" to add an action.
 5. Double-click the action to give it a name.
 6. Add bindings to the action by clicking the plus sign and using the "Pick" button to select controls.
 7. Enable "Generate C# Wrapper Class" in the importer settings and hit "Apply". Your inspector should now look something like this:
