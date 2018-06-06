@@ -1,12 +1,14 @@
 ////TODO: This page is work in progress
 
-The system breaks down into a "passive" and an "active" part.
+The system breaks down into a "passive" (low-level) and an "active" (high-level) part.
 
 ////TODO: write a one or two paragraph summary
 
-# Passive
+# Passive (Low-Level)
 
 The "passive" part is concerned with capturing state using minimal per-frame processing. It is largely set up automatically but can be configured/adjusted by the user. It has a zero-setup API that will be familiar to users of Unity's existing input system.
+
+![Low-Level Architecture](Images/InputArchitectureLowLevel.png)
 
 ## Controls
 
@@ -122,7 +124,7 @@ Output/haptics is implemented through state events that are sent in the opposite
 
 For a device to be able to receive output, it has to provide a buffer into which the system will write output state events as they appear.
 
-# Active
+# Active (High-Level)
 
 The "active" part of the system requires explicit setup by the user and incurs processing overhead proportional to the amount of enabled functionality. Unlike the "passive" part, it is concerned with state *change* rather than with state itself.
 
