@@ -102,12 +102,12 @@ Note that you still need to enable the action in code and hook up your response.
         walkAction.Disable();
     }
 
-    void Fire(InputAction action, InputControl control)
+    void Fire(InputAction.CallbackContext ctx)
     {
         //...
     }
 
-    void Walk(InputAction action, InputControl control)
+    void Walk(InputAction.CallbackContext ctx)
     {
         //...
     }
@@ -230,7 +230,7 @@ One way is to use actions.
 
 ```C#
     var myAction = new InputAction(binding: "/*/<button>");
-    myAction.onPerformed += (action, control) => Debug.Log($"Button {control.name} pressed!");
+    myAction.performed += ctx => Debug.Log($"Button {ctx.control.name} pressed!");
     myAction.Enable();
 ```
 
@@ -477,7 +477,7 @@ And then make sure you put extra StateEvents for your HMD on the queue right in 
 
     var trace = new InputEventTrace(); // Can also give device ID to only
                                        // trace events for a specific device.
-    
+
     trace.Enable();
 
     //... run stuff
