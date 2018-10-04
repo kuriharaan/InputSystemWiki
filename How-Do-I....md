@@ -161,7 +161,7 @@ Put a HoldModifier on the action. In code, this works like so:
 ```C#
 
     var action = new InputAction(binding: "*/{PrimaryAction}",
-        modifiers: "hold(duration=0.4)");
+        interactions: "hold(duration=0.4)");
 
 ```
 
@@ -183,7 +183,7 @@ To display UI feedback when the button starts being held, use the `started` call
 
     var action = new InputAction();
     action.AddBinding("/<gamepad>/leftTrigger")
-        .CombinedWith("/<gamepad>/buttonSouth", modifiers: "hold(duration=0.4)");
+        .CombinedWith("/<gamepad>/buttonSouth", interactions: "hold(duration=0.4)");
 
 ```
 
